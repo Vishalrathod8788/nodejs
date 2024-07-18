@@ -10,9 +10,9 @@ const myPro = new Promise((resolve, reject) => {
 
 // console.log(myPro)
 
-// myPro.then((result) => {
-//     console.log(result)
-// })
+myPro.then((result) => {
+    console.log(result)
+})
 
 // Arow function Sytax
 let res = 10;
