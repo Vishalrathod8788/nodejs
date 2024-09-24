@@ -1,3 +1,4 @@
+// --------------------------------------------------------------------------------------------
 //--> Operatore
 
 // 1). What will be the output of 3**3?
@@ -18,10 +19,58 @@
 
 // console.log("a = " +a, "b = "+b);
 
+// 4). Write a program to swap two numbers but without using 3rd variable
+
+// 1st Method
+
 // let a = 5;
 // let b = 10;
 
-// 4). Write a program to swap two numbers but without using 3rd variable
 // [a, b] = [b, a];
 
 // console.log("a = " + a, "b = " + b);
+
+// 2nd Method
+
+// let a = 10;
+// let b = 20;
+// console.log("Swap Before");
+
+// console.log("a = " + a, "b = " + b);
+
+// a = a + b;
+// b = a - b;
+// a = a - b;
+// console.log("Swap After");
+
+// console.log("a = " + a, "b = " + b);
+
+// --------------------------------------------------------------------------------------------
+
+// 1). Write program if a given year is leap year or not? (Leap year condition - divisible by 400 or divisible by 4 but not 100)
+
+var year = 2024;
+
+// For Begginer
+
+// if (year % 4 == 0) {
+//   if (year % 100 == 0) {
+//     if (year % 400 == 0) {
+//       console.log("Leap Year");
+//     } else {
+//       console.log("Not Leap Year");
+//     }
+//   } else {
+//     console.log("Leap Year");
+//   }
+// } else {
+//   console.log("Not Leap Year");
+// }
+
+// For Advance
+
+// if (year % 4 == 0 || (year % 400 == 0 && year % 100 != 0)) {
+//   console.log(year, "is Leap Year...");
+// } else {
+//   console.log(year, "is not leap year");
+// }
