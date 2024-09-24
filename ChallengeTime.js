@@ -49,7 +49,7 @@
 
 // 1). Write program if a given year is leap year or not? (Leap year condition - divisible by 400 or divisible by 4 but not 100)
 
-var year = 2024;
+var year = 8887;
 
 // For Begginer
 
