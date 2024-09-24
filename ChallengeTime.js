@@ -74,3 +74,8 @@ var year = 8887;
 // } else {
 //   console.log(year, "is not leap year");
 // }
+
+// --------------------------------------------------------------------------------------------
+
+// what difrence between function parameter and function argument
+
