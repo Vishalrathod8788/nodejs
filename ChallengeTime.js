@@ -10,15 +10,6 @@
 
 // 3). Write a program to swap two numbers?
 
-// let a = 5;
-// let b = 10;
-
-// // 1st Method
-// [a, b] = [b, a];
-
-// console.log("a = " + a, "b = " + b);
-
-// 2nd Method
 // console.log("a = " +a, "b = "+b);
 
 // let temp = a;
@@ -26,3 +17,11 @@
 // b = temp;
 
 // console.log("a = " +a, "b = "+b);
+
+// let a = 5;
+// let b = 10;
+
+// 4). Write a program to swap two numbers but without using 3rd variable
+// [a, b] = [b, a];
+
+// console.log("a = " + a, "b = " + b);
