@@ -66,7 +66,28 @@
 // }
 // sub();
 
-let a = 5;
-let b = a++;
+// let a = 5;
+// let b = a++;
 
-console.log("a =", a, "b =", b);
+// console.log("a =", a, "b =", b);
+
+function testVar() {
+    if (true) {
+        var x = 10;
+    }
+    console.log(x); // 10
+}
+
+function testLet() {
+    if (true) {
+        let y = 10;
+    }
+    console.log(y); // Error: y is not defined
+}
+
+console.log(a); // undefined (due to hoisting)
+var a = 5;
+
+// console.log(b); // ReferenceError: Cannot access 'b' before initialization
+// let b = 5;
+
