@@ -90,3 +90,23 @@
 
 // console.log(b); // ReferenceError: Cannot access 'b' before initialization
 // let b = 5;
+
+// Diffrance Between Var and Let Keyword :
+
+// Main Point of this Topic is :
+
+// 1. Scope:
+// 2. Hoisting:
+// 3. Redeclaration:
+
+// Template Literals : ` `;
+
+let a = 10;
+let b = 20;
+
+// console.log(`${a} + ${b} = `, a + b);
+
+let table = 5;
+for (let i = 1; i <= 10; i++) {
+  console.log(`${table} * ${i} =`, table * i);
+}
