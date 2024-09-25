@@ -1,3 +1,9 @@
+// let x = "b";
+// let y = "a";
+
+// console.log(x + y + +y + y);
+
+// console.log(x++); //baNaNa
 // --------------------------------------------------------------------------------------------
 //--> Operatore
 
@@ -49,7 +55,7 @@
 
 // 1). Write program if a given year is leap year or not? (Leap year condition - divisible by 400 or divisible by 4 but not 100)
 
-var year = 8887;
+// var year = 8887;
 
 // For Begginer
 
@@ -77,5 +83,22 @@ var year = 8887;
 
 // --------------------------------------------------------------------------------------------
 
-// what difrence between function parameter and function argument
+// Arrays
 
+// 1. Add Dec at the end  of an Array
+
+const month = ["Jan", "Mar", "Apr", "Jun", "Jul"];
+// console.log(month);
+// month.splice(month.length, 0, "Dec");
+// console.log(month);
+
+// 2. What is the return value of splice method
+month.splice(month.length, 0, "Dec");
+// console.log(month);
+
+// 3. Update Mar to march (update) ?
+month.splice(1, 1, "march");
+// console.log(month);
+// 4. Delete Jun from an array?
+month.splice(3, 1);
+// console.log(month);
