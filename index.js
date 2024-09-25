@@ -53,6 +53,10 @@
 
 // Anonymous Function
 
+// var sum = function (a, b) {
+//   return a + b;
+// };
+
 //
 
 // console.log(sum(5, 15));
@@ -101,12 +105,51 @@
 
 // Template Literals : ` `;
 
-let a = 10;
-let b = 20;
+// let a = 10;
+// let b = 20;
 
 // console.log(`${a} + ${b} = `, a + b);
 
-let table = 5;
-for (let i = 1; i <= 10; i++) {
-  console.log(`${table} * ${i} =`, table * i);
+// let table = 5;
+// for (let i = 1; i <= 10; i++) {
+//   console.log(`${table} * ${i} =`, table * i);
+// }
+
+// Default Parameters
+// function sum(a, b = 10) {
+//   console.log(a * b);
+// }
+
+// sum(50);
+
+// Normal Function
+
+// console.log(sum());
+
+function sum() {
+  let a = 10,
+    b = 20;
+  let total = a + b;
+  return `Total Sum of ${total}`;
 }
+
+let ans = sum();
+
+console.log(ans);
+console.log(sum());
+
+// Arrow Function
+
+// const sum = () => {
+//   let a = 10,
+//     b = 20;
+//   let total = a + b;
+//   return `Total Sum of ${total}`;
+// };
+
+const div = () => {
+  let a = 10,
+    b = 20;
+  let ans = a / b;
+  return `Division of ${ans}`;
+};
