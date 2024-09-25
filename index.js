@@ -126,17 +126,17 @@
 
 // console.log(sum());
 
-function sum() {
-  let a = 10,
-    b = 20;
-  let total = a + b;
-  return `Total Sum of ${total}`;
-}
+// function sum() {
+//   let a = 10,
+//     b = 20;
+//   let total = a + b;
+//   return `Total Sum of ${total}`;
+// }
 
-let ans = sum();
+// let ans = sum();
 
-console.log(ans);
-console.log(sum());
+// console.log(ans);
+// console.log(sum());
 
 // Arrow Function
 
@@ -147,9 +147,35 @@ console.log(sum());
 //   return `Total Sum of ${total}`;
 // };
 
-const div = () => {
-  let a = 10,
-    b = 20;
-  let ans = a / b;
-  return `Division of ${ans}`;
-};
+// const Sub = () => {
+//   let a = 10,
+//     b = 20;
+//   let total = a - b;
+//   return `Total Sub of ${total}`;
+// };
+
+// console.log(Sub());
+
+// Ful Short Function Write
+
+// Method 1
+
+// const sum = () => {
+//   let a = 10,
+//     b = 20;
+//   let total = a + b;
+//   return `Total Sum of ${total}`;
+// };
+
+// Method 2
+
+// const sum = () => {
+//   return `Sum of Two Numbers ${(a = 10) + (b = 20)}`;
+// };
+// console.log(sum());
+
+// Method 3
+
+const div = () => `Total Div of ${(a = 10) / (b = 5)}`;
+
+console.log(div());
