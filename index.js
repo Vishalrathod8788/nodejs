@@ -53,19 +53,20 @@
 
 // Anonymous Function
 
-var sum = function (a, b) {
-  return a + b;
-};
+//
 
-console.log(sum(5, 15));
+// console.log(sum(5, 15));
 
-var a = 20;
-var b = 10;
+// var a = 20;
+// var b = 10;
 
-function sub() {
-  var total = a - b;
-  console.log("Subtraction", total);
-}
-sub();
+// function sub() {
+//   var total = a - b;
+//   console.log("Subtraction", total);
+// }
+// sub();
 
+let a = 5;
+let b = a++;
 
+console.log("a =", a, "b =", b);
