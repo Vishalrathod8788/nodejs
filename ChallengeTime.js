@@ -87,18 +87,20 @@
 
 // 1. Add Dec at the end  of an Array
 
-const month = ["Jan", "Mar", "Apr", "Jun", "Jul"];
+// const month = ["Jan", "Mar", "Apr", "Jun", "Jul"];
 // console.log(month);
 // month.splice(month.length, 0, "Dec");
 // console.log(month);
 
 // 2. What is the return value of splice method
-month.splice(month.length, 0, "Dec");
+// month.splice(month.length, 0, "Dec");
 // console.log(month);
 
 // 3. Update Mar to march (update) ?
-month.splice(1, 1, "march");
+// month.splice(1, 1, "march");
 // console.log(month);
 // 4. Delete Jun from an array?
-month.splice(3, 1);
+// month.splice(3, 1);
 // console.log(month);
+
+// console.log(1 + + '2' + '2'); // 32 because + + '2' assume unery Opeator so convert in NUmber
