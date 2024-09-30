@@ -176,10 +176,42 @@ const e = require("express");
 
 // Any Product on 20% discount for using map method
 
-const originalPrice = [100, 200, 300, 400];
+// const originalPrice = [100, 200, 300, 400];
 
-const discount = originalPrice.map((price) => price - price * 0.2);
-const discountedPrices = originalPrice.map((price) => price * 0.8);
+// const discount = originalPrice.map((price) => price - price * 0.2);
+// const discountedPrices = originalPrice.map((price) => price * 0.8);
 
-console.log(discount);
-console.log(discountedPrices);
+// console.log(discount);
+// console.log(discountedPrices);
+
+// Reduce Method
+
+// 1. Given Number in Total Sum:
+
+// let arr = [1, 2, 3, 4, 5];
+
+// const sum = arr.reduce((acumu, currVal) => {
+//     return acumu + currVal;
+// })
+
+// console.log(sum);
+
+// 2. Given an Array in Find Max NUmber:
+
+const arr = [10, 25, 45, 65, 30, 85, 40];
+
+const Max = arr.reduce((acumu, currVal) => {
+  // Without Use Inbuilt Function
+
+  //   if (currVal > acumu) {
+  //     return currVal
+  //   } else {
+  //     return acumu;
+  //   }
+
+  // Use Inbuilt Function
+
+  return Math.max(acumu, currVal);
+});
+
+console.log(Max);
