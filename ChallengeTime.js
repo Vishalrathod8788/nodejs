@@ -198,20 +198,22 @@ const e = require("express");
 
 // 2. Given an Array in Find Max NUmber:
 
-const arr = [10, 25, 45, 65, 30, 85, 40];
+// const arr = [10, 25, 45, 65, 30, 85, 40];
 
-const Max = arr.reduce((acumu, currVal) => {
-  // Without Use Inbuilt Function
+// const Max = arr.reduce((acumu, currVal) => {
+//   // Without Use Inbuilt Function
 
-  //   if (currVal > acumu) {
-  //     return currVal
-  //   } else {
-  //     return acumu;
-  //   }
+//   //   if (currVal > acumu) {
+//   //     return currVal
+//   //   } else {
+//   //     return acumu;
+//   //   }
 
-  // Use Inbuilt Function
+//   // Use Inbuilt Function
 
-  return Math.max(acumu, currVal);
-});
+//   return Math.max(acumu, currVal);
+// });
 
-console.log(Max);
+// console.log(Max);
+
+
