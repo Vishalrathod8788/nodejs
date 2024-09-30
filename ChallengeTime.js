@@ -1,6 +1,8 @@
 // let x = "b";
 // let y = "a";
 
+const e = require("express");
+
 // console.log(x + y + +y + y);
 
 // console.log(x++); //baNaNa
@@ -104,3 +106,80 @@
 // console.log(month);
 
 // console.log(1 + + '2' + '2'); // 32 because + + '2' assume unery Opeator so convert in NUmber
+
+// --------------------------------------------------------------------------------------------
+
+// Map, Filter, Reduce Method in Array
+
+// 1. Map Method
+
+// Find an Array of Square Root of given Array ?
+
+// const arr = [1, 2, 3, 4, 5];
+
+// const newArr = arr.map((curEle) => {
+//   return curEle * curEle;
+// });
+
+// console.log(newArr);
+
+// 2. Map Method
+
+// // Map method real life example
+// const users = [
+//   { firstName: "Vishal", age: 22 },
+//   { firstName: "Rahul", age: 21 },
+//   { firstName: "Raj", age: 23 },
+//   { firstName: "Ramesh", age: 24 },
+// ];
+// const userName = users.map((user) => {
+//   return user.firstName;
+// });
+
+// console.log(userName);
+
+// 3. Map Method
+
+// Real-Life Example: Calculating Total Prices with Tax
+
+// const productPrices = [100, 200, 300, 400];
+
+// const taxPrices = productPrices.map((price) => {
+//   return price + price * 0.1;
+// });
+
+// console.log(taxPrices);
+
+// 4. Formating User Date
+
+// const userData = [
+//   { firstName: "Vishal", lastName: "Rathod", age: 22 },
+//   { firstName: "Rahul", lastName: "Rathod", age: 21 },
+//   { firstName: "Raj", lastName: "Rathod", age: 23 },
+//   { firstName: "Ramesh", lastName: "Rathod", age: 24 },
+// ];
+
+// const FirstName = userData.map((user) => user.firstName);
+// const LastName = userData.map((user) => user.lastName);
+// const Age = userData.map((user) => user.age);
+
+// const FullName = userData.map(
+//   (user) =>
+//     `First Name : ${user.firstName} Last Name : ${user.lastName} and Age : ${user.age}`
+// );
+
+// console.log(FirstName);
+// console.log(LastName);
+// console.log(Age);
+
+// console.log(FullName);
+
+// Any Product on 20% discount for using map method
+
+const originalPrice = [100, 200, 300, 400];
+
+const discount = originalPrice.map((price) => price - price * 0.2);
+const discountedPrices = originalPrice.map((price) => price * 0.8);
+
+console.log(discount);
+console.log(discountedPrices);
