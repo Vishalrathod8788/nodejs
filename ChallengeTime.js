@@ -216,4 +216,31 @@ const e = require("express");
 
 // console.log(Max);
 
+// Flatting Arrays
+
+// const arr = [
+//   ["Vishal", "Rathod"],
+//   ["Rahul", "Rathod"],
+//   ["Raj", "Rathod"],
+//   ["Ramesh", "Rathod"],
+// ];
+
+// const flat = arr.reduce((acc, currVal) => {
+//     return acc.concat(currVal);
+// });
+
+// console.log(flat);
+
+// Counting Occurrences
+
+const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+
+const count = fruits.reduce((acc, curr) => {
+  acc[curr] = (acc[curr] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(count);
+
+// console.log(fruits[1]);
 
