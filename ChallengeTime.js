@@ -233,14 +233,44 @@ const e = require("express");
 
 // Counting Occurrences
 
-const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+// const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
 
-const count = fruits.reduce((acc, curr) => {
-  acc[curr] = (acc[curr] || 0) + 1;
-  return acc;
-}, {});
+// const count = fruits.reduce((acc, curr) => {
+//   acc[curr] = (acc[curr] || 0) + 1;
+//   return acc;
+// }, {});
 
-console.log(count);
+// console.log(count);
 
 // console.log(fruits[1]);
 
+// Real-life example: Calculating total expenses
+
+const expenses = [
+  { category: "Food", amount: 50.75 },
+  { category: "Transport", amount: 30.0 },
+  { category: "Entertainment", amount: 25.5 },
+  { category: "Food", amount: 40.25 },
+  { category: "Utilities", amount: 100.0 },
+];
+
+const totalExpenses = expenses.reduce(
+  (acc, expense) => acc + expense.amount,
+  0
+);
+
+console.log("Total expenses:", totalExpenses.toFixed(2));
+
+// Bonus: Grouping expenses by category
+const expensesByCategory = expenses.reduce((acc, expense) => {
+  // Check if category exists, if not, create it
+  if (!acc[expense.category]) {
+    acc[expense.category] = 0;
+  }
+  // Add expense amount to category
+  acc[expense.category] = acc[expense.category] + expense.amount;
+  // Return the updated accumulator
+  return acc;
+}, {});
+
+console.log("Expenses by category:", expensesByCategory);
