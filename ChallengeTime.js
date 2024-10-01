@@ -1,8 +1,6 @@
 // let x = "b";
 // let y = "a";
 
-const e = require("express");
-
 // console.log(x + y + +y + y);
 
 // console.log(x++); //baNaNa
