@@ -110,11 +110,15 @@
 // String
 
 // Escap Character :
-console.log("Hey I'm Vishal, I'm Softwere Developer");
 
-console.log("\t This is Tab Escape Character Use");
+// console.log("Hey I'm Vishal, I'm Softwere Developer");
 
-console.log("Hey There! \nI'm Vishal.");
+// console.log("\t This is Tab Escape Character Use");
+
+// console.log("Hey There! \nI'm Vishal.");
+
+// Find String in a String
+
 
 // --------------------------------------------------------------------------------------------
 
