@@ -177,6 +177,17 @@
 // console.log(check);
 
 // 6. search()
+// let str = "Hello World";
+// let search = str.search("");
+// console.log(search);
+
+// 7. match();
+// const text = "The quick brown fox jumps over the lazy dog";
+
+// console.log("\n--- match() ---");
+// console.log(text.match("jump"));
+// console.log(text.match(/t/g));
+
 // --------------------------------------------------------------------------------------------
 
 // Map, Filter, Reduce Method in Array
