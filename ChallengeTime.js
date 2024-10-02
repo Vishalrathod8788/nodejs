@@ -148,13 +148,25 @@
 // 26. valueOf() // Return String
 // 27. localeCompare() // Compare String
 
-// Above All Method in One live Example write with basic level code 
+// ------------------Above All Method is case sensitive.------------------
+
+// Above All Method in One live Example write with basic level code
 // 1. indexOf()
-let str = "Hello World";
-let index = str.indexOf("World");
-console.log(index);
+// let str = "Hello World";
+// let index = str.indexOf("World");
+// console.log(index);
 
+// 2. lastIndexOf()
+// let str = "Hello World";
+// let index = str.lastIndexOf("W");
+// console.log(index);
 
+// 3. includes()
+// let str = "Hello World";
+// let check = str.includes("World");
+// console.log(check);
+
+4. 
 // --------------------------------------------------------------------------------------------
 
 // Map, Filter, Reduce Method in Array
