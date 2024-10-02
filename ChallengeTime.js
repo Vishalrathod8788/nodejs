@@ -119,6 +119,41 @@
 
 // Find String in a String
 
+// Most Common Usefull Method!
+// 1. indexOf() // Return First Index of String
+// 2. lastIndexOf() // Return Last Index of String
+// 3. includes() // Return True or False
+// 4. startsWith() // Return True or False
+// 5. endsWith() // Return True or False
+// 6. search() // Return Index of String
+// 7. match() // Return Array of String
+// 8. matchAll() // Return Array of String
+// 9. replace() // Replace String
+// 10. replaceAll() // Replace String
+// 11. toUpperCase() // Convert String to UpperCase
+// 12. toLowerCase() // Convert String to LowerCase
+// 13. trim() // Remove White Space
+// 14. trimStart() // Remove White Space from Start
+// 15. trimEnd() // Remove White Space from End
+// 16. slice() // Slice String
+// 17. split() // Split String
+// 18. concat() // Concat String
+// 19. repeat() // Repeat String
+// 20. padStart() // Pad String from Start
+// 21. padEnd() // Pad String from End
+// 22. charAt() // Return Character at Index
+// 23. charCodeAt() // Return Unicode of Character at Index
+// 24. fromCharCode() // Return String from Unicode
+// 25. toString() // Return String
+// 26. valueOf() // Return String
+// 27. localeCompare() // Compare String
+
+// Above All Method in One live Example write with basic level code 
+// 1. indexOf()
+let str = "Hello World";
+let index = str.indexOf("World");
+console.log(index);
+
 
 // --------------------------------------------------------------------------------------------
 
@@ -259,31 +294,31 @@
 
 // Real-life example: Calculating total expenses
 
-const expenses = [
-  { category: "Food", amount: 50.75 },
-  { category: "Transport", amount: 30.0 },
-  { category: "Entertainment", amount: 25.5 },
-  { category: "Food", amount: 40.25 },
-  { category: "Utilities", amount: 100.0 },
-];
+// const expenses = [
+//   { category: "Food", amount: 50.75 },
+//   { category: "Transport", amount: 30.0 },
+//   { category: "Entertainment", amount: 25.5 },
+//   { category: "Food", amount: 40.25 },
+//   { category: "Utilities", amount: 100.0 },
+// ];
 
-const totalExpenses = expenses.reduce(
-  (acc, expense) => acc + expense.amount,
-  0
-);
+// const totalExpenses = expenses.reduce(
+//   (acc, expense) => acc + expense.amount,
+//   0
+// );
 
-console.log("Total expenses:", totalExpenses.toFixed(2));
+// console.log("Total expenses:", totalExpenses.toFixed(2));
 
-// Bonus: Grouping expenses by category
-const expensesByCategory = expenses.reduce((acc, expense) => {
-  // Check if category exists, if not, create it
-  if (!acc[expense.category]) {
-    acc[expense.category] = 0;
-  }
-  // Add expense amount to category
-  acc[expense.category] = acc[expense.category] + expense.amount;
-  // Return the updated accumulator
-  return acc;
-}, {});
+// // Bonus: Grouping expenses by category
+// const expensesByCategory = expenses.reduce((acc, expense) => {
+//   // Check if category exists, if not, create it
+//   if (!acc[expense.category]) {
+//     acc[expense.category] = 0;
+//   }
+//   // Add expense amount to category
+//   acc[expense.category] = acc[expense.category] + expense.amount;
+//   // Return the updated accumulator
+//   return acc;
+// }, {});
 
-console.log("Expenses by category:", expensesByCategory);
+// console.log("Expenses by category:", expensesByCategory);
