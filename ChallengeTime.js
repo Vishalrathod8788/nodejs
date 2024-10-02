@@ -166,7 +166,17 @@
 // let check = str.includes("World");
 // console.log(check);
 
-4. 
+// 4. startsWith()
+// let str = "Hello World";
+// let check = str.startsWith("W");
+// console.log(check); // False
+
+// 5. endsWith();
+// let str = "Hello World";
+// let check = str.endsWith("d");
+// console.log(check);
+
+// 6. search()
 // --------------------------------------------------------------------------------------------
 
 // Map, Filter, Reduce Method in Array
