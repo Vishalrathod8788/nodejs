@@ -107,6 +107,17 @@
 
 // --------------------------------------------------------------------------------------------
 
+// String
+
+// Escap Character :
+console.log("Hey I'm Vishal, I'm Softwere Developer");
+
+console.log("\t This is Tab Escape Character Use");
+
+console.log("Hey There! \nI'm Vishal.");
+
+// --------------------------------------------------------------------------------------------
+
 // Map, Filter, Reduce Method in Array
 
 // 1. Map Method
