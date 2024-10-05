@@ -355,3 +355,22 @@
 // }, {});
 
 // console.log("Expenses by category:", expensesByCategory);
+
+// --------------------------------------------------------------------------------------------
+
+// Data Functio
+
+// let currDate = new Date();
+// console.log(new Date());
+
+// console.log(new Date().toLocaleDateString());
+// console.log(new Date().toString());
+// console.log(Date.now());
+
+let d = new Date(2024, 0, 15, 10, 30, 0);
+console.log(d.toLocaleString());
+
+let a = [1, 2, 3];
+let b = a;
+b.append(4);
+console.log(a);
