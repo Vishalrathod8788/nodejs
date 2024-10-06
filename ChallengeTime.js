@@ -370,7 +370,3 @@
 let d = new Date(2024, 0, 15, 10, 30, 0);
 console.log(d.toLocaleString());
 
-let a = [1, 2, 3];
-let b = a;
-b.append(4);
-console.log(a);
