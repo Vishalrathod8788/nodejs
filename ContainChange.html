@@ -5,5 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contain Change</title>
   </head>
-  <body></body>
+  <body>
+    <style>
+      * {
+        background-color: aquamarine;
+      }
+      h1 {
+        padding-top: 50px;
+      }
+      #container {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px solid #312626;
+      }
+
+      #contain {
+        width: 300px;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: 1px solid #312626;
+        border-radius: 5px;
+      }
+      #containNotify {
+        width: 300px;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: 1px solid #312626;
+        border-radius: 5px;
+      }
+      #Notify {
+        padding: 10px;
+      }
+    </style>
+
+    <div id="container">
+      <h1><u>Text Change</u></h1>
+      <p id="text">Please Enter any text to Chnage Text</p>
+      <input type="text" id="contain" name="Contain" />
+      <button onclick="changeButton()">Change Text</button>
+
+      <h1><u>Customize Notification</u></h1>
+      <p id="text">Please Enter any text to Chnage Notification</p>
+      <input type="text" id="containNotify" name="Contain" />
+      <button onclick="chnageNotify()">Change Message</button>
+    </div>
+
+    <script>
+      const changeButton = () => {
+        const containVal = document.getElementById("contain").value;
+        const changeText = document.getElementById("text");
+        if (containVal == "") {
+          changeText.innerHTML = "Please Enter any Text";
+        } else {
+          changeText.innerHTML = containVal;
+        }
+      };
+
+      const chnageNotify = () => {
+        const inputMess = document.getElementById("containNotify").value;
+        if (inputMess == "") {
+          alert("Please Enter any Text");
+        } else {
+          alert(inputMess);
+        }
+      };
+    </script>
+  </body>
 </html>
