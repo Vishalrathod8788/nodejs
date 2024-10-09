@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #container {
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #demoButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #demoButton:hover {
+            background-color: #45a049;
+        }
+        #eventInfo {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+
+    <div id="container">
+        <h1>Event Object Demo</h1>
+        <button id="demoButton">Click Me!</button>
+        <div id="eventInfo"></div>
+    </div>
+
+    <script>
+        const button = document.getElementById('demoButton');
+        const eventInfo = document.getElementById('eventInfo');
+
+        button.addEventListener('click', function(event) {
+            eventInfo.innerHTML = `
+                <h3>Event Details:</h3>
+                <p>Event Type: ${event.type}</p>
+                <p>Target Element: ${event.target.tagName}</p>
+                <p>Mouse X: ${event.clientX}</p>
+                <p>Mouse Y: ${event.clientY}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

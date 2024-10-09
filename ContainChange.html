@@ -61,7 +61,28 @@
     </div>
 
     <script>
-      const changeButton = () => {
+      //First way of write function
+      // const changeButton = () => {
+      //   const containVal = document.getElementById("contain").value;
+      //   const changeText = document.getElementById("text");
+      //   if (containVal == "") {
+      //     changeText.innerHTML = "Please Enter any Text";
+      //   } else {
+      //     changeText.innerHTML = containVal;
+      //   }
+      // };
+
+      // const chnageNotify = () => {
+      //   const inputMess = document.getElementById("containNotify").value;
+      //   if (inputMess == "") {
+      //     alert("Please Enter any Text");
+      //   } else {
+      //     alert(inputMess);
+      //   }
+      // };
+
+      //Second way of write function
+      function changeButton() {
         const containVal = document.getElementById("contain").value;
         const changeText = document.getElementById("text");
         if (containVal == "") {
@@ -69,16 +90,16 @@
         } else {
           changeText.innerHTML = containVal;
         }
-      };
+      }
 
-      const chnageNotify = () => {
+      function chnageNotify() {
         const inputMess = document.getElementById("containNotify").value;
         if (inputMess == "") {
           alert("Please Enter any Text");
         } else {
           alert(inputMess);
         }
-      };
+      }
     </script>
   </body>
 </html>
