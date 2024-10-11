@@ -17,12 +17,11 @@
       function mouseup() {
         message.style.color = "blue";
       }
-      function mousemove() {
-        message.style.color = "green";
-      }
       message.addEventListener("mousedown", mousedown);
       message.addEventListener("mouseup", mouseup);
-      message.addEventListener("mousemove", mousemove);
+      message.addEventListener("mousemove", () => {
+        message.style.color = "green";
+      });
     </script>
   </body>
 </html>
