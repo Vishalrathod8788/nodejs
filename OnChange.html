@@ -29,15 +29,10 @@
     <div id="orderSummary"></div>
 
     <script>
-      const form = document.getElementById("iceCreamForm");
-      const orderSummary = document.getElementById("orderSummary");
+        const UserInput = document.getElementById("userName").value;
+        const Select = document.getElementById("iceCreamFlavor").value;
+        
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const name = document.getElementById("userName").value;
-        const flavor = document.getElementById("iceCreamFlavor").value;
-        orderSummary.innerHTML = `<p>Thank you, ${name}! Your ${flavor} ice cream order has been placed.</p>`;
-      });
     </script>
 
     <style>
