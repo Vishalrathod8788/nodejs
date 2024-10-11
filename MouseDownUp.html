@@ -7,18 +7,21 @@
   </head>
   <body>
     <h1>Mouse Down Up</h1>
-    <p id="message" mousedown="mousedown()" mouseup="mouseup()">
-      Click the button to see the message.
-    </p>
+    <p id="message">Click the button to see the message.</p>
     <script>
+      const message = document.getElementById("message");
       function mousedown() {
-        const message = (document.getElementById("message").style.color =
-          "red");
+        message.style.color = "red";
       }
       function mouseup() {
-        const message = (document.getElementById("message").style.color =
-          "blue");
+        message.style.color = "blue";
       }
+      function mousemove() {
+        message.style.color = "green";
+      }
+      message.addEventListener("mousedown", mousedown);
+      message.addEventListener("mouseup", mouseup);
+      message.addEventListener("mousemove", mousemove);
     </script>
   </body>
 </html>
