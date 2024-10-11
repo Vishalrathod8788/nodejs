@@ -44,7 +44,7 @@
       // Keyboard Event Handling
       const input = document.getElementById("keyboardInput");
       const output = document.getElementById("keyboardOutput");
-      input.addEventListener("keypress", (event) => {
+      input.addEventListener("keypress", () => {
         output.textContent = `You Press "${event.key}" key`;
       });
     </script>
