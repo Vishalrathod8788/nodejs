@@ -39,11 +39,23 @@
       //     orderSummary.innerHTML = `<p>Thank you, ${name}! Your ${flavor} ice cream order has been placed.</p>`;
       //   });
 
-      const selectElement = () => {
-        const userName = document.getElementById("userName");
-        const choice = document.getElementById("iceCreamFlavor");
-        
-      };
+      // const selectElement = () => {
+      //   const userName = document.getElementById("userName");
+      //   const choice = document.getElementById("iceCreamFlavor");
+      //   const output = document.getElementById("orderSummary");
+      //   output.innerHTML = `<p>Thank you, ${name}! Your ${flavor} ice cream order has been placed.</p>`;
+      //   console.log("Test :");
+      // };
+
+      const form = document.getElementById("iceCreamForm");
+      const output = document.getElementById("orderSummary");
+
+      form.addEventListener("submit", () => {
+        event.preventDefault();
+        const userName = document.getElementById("userName").value;
+        const choice = document.getElementById("iceCreamFlavor").value;
+        output.innerHTML = `<p>Thank you, ${userName}! Your ${choice} ice cream order has been placed.</p>`;
+      });
     </script>
 
     <style>
