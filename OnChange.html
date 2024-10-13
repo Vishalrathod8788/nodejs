@@ -29,15 +29,21 @@
     <div id="orderSummary"></div>
 
     <script>
-      const form = document.getElementById("iceCreamForm");
-      const orderSummary = document.getElementById("orderSummary");
+      //   const form = document.getElementById("iceCreamForm");
+      //   const orderSummary = document.getElementById("orderSummary");
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const name = document.getElementById("userName").value;
-        const flavor = document.getElementById("iceCreamFlavor").value;
-        orderSummary.innerHTML = `<p>Thank you, ${name}! Your ${flavor} ice cream order has been placed.</p>`;
-      });
+      //   form.addEventListener("submit", function (event) {
+      //     event.preventDefault();
+      //     const name = document.getElementById("userName").value;
+      //     const flavor = document.getElementById("iceCreamFlavor").value;
+      //     orderSummary.innerHTML = `<p>Thank you, ${name}! Your ${flavor} ice cream order has been placed.</p>`;
+      //   });
+
+      const selectElement = () => {
+        const userName = document.getElementById("userName");
+        const choice = document.getElementById("iceCreamFlavor");
+        
+      };
     </script>
 
     <style>
