@@ -56,10 +56,16 @@
       };
 
       const start = () => {
-        if(intervalId === null){
-            intervalId = (updateCounter, 1000);
-            startButton.disable = true;
-            
+        if (intervalId === null) {
+          intervalId = setInterval(updateCounter, 1000);
+          startButton.disabled = true;
+          stopButton.disabled = false;
+        }
+      };
+
+      const stop = () => {
+        if (intervalId !== null) {
+          intervalId = setInterval(updateCounter, 1000);
         }
       };
     </script>
