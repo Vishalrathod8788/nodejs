@@ -13,13 +13,10 @@
         <input type="text" id="userName" name="userName" required />
       </div>
       <div>
-        <label for="iceCreamFlavor">Choose Ice Cream Flavor:</label>
-        <select
-          id="iceCreamFlavor"
-          name="iceCreamFlavor"
-          onchange="selectElement()"
-          required
+        <label for="iceCreamFlavor" id="iceCream"
+          >Choose Ice Cream Flavor:</label
         >
+        <select id="iceCreamFlavor" name="iceCreamFlavor" required>
           <option value="">Select a flavor</option>
           <option value="vanilla">Vanilla</option>
           <option value="chocolate">Chocolate</option>
@@ -28,7 +25,7 @@
           <option value="cookie">Cookies and Cream</option>
         </select>
       </div>
-      <button type="submit">Submit Order</button>
+      <!-- <button type="submit">Submit Order</button> -->
     </form>
 
     <div id="orderSummary"></div>
@@ -44,23 +41,21 @@
       //     orderSummary.innerHTML = `<p>Thank you, ${name}! Your ${flavor} ice cream order has been placed.</p>`;
       //   });
 
-      const selectElement = () => {
+      // const selectElement = () => {
+      //   const userName = document.getElementById("userName").value;
+      //   const choice = document.getElementById("iceCreamFlavor").value;
+      //   const output = document.getElementById("orderSummary");
+      //   output.innerHTML = `<p>Thank you, ${userName}! Your ${choice} ice cream order has been placed.</p>`;
+      //   console.log("Test :");
+      // };
+
+      const iceCream = document.getElementById("iceCreamFlavor");
+      iceCream.addEventListener("change", () => {
         const userName = document.getElementById("userName").value;
         const choice = document.getElementById("iceCreamFlavor").value;
         const output = document.getElementById("orderSummary");
         output.innerHTML = `<p>Thank you, ${userName}! Your ${choice} ice cream order has been placed.</p>`;
-        console.log("Test :");
-      };
-
-      // const form = document.getElementById("iceCreamForm");
-      // const output = document.getElementById("orderSummary");
-
-      // form.addEventListener("submit", () => {
-      //   event.preventDefault();
-      //   const userName = document.getElementById("userName").value;
-      //   const choice = document.getElementById("iceCreamFlavor").value;
-      //   output.innerHTML = `<p>Thank you, ${userName}! Your ${choice} ice cream order has been placed.</p>`;
-      // });
+      });
     </script>
 
     <style>
