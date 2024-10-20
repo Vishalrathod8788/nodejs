@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setInterval Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      #counter {
+        font-size: 48px;
+        margin: 20px 0;
+      }
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>setInterval Demo</h1>
+      <div id="counter">0</div>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
+    <script>
+      let count = 0;
+      let intervalId = null;
+
+      const counterElement = document.getElementById("counter");
+      const startButton = document.getElementById("start");
+      const stopButton = document.getElementById("stop");
+      const resetButton = document.getElementById("reset");
+
+      function updateCounter() {
+        count++;
+        counterElement.textContent = count;
+      }
+
+      function startCounter() {
+        if (intervalId === null) {
+          intervalId = setInterval(updateCounter, 1000);
+          startButton.disabled = true;
+          stopButton.disabled = false;
+        }
+      }
+
+      function stopCounter() {
+        if (intervalId !== null) {
+          clearInterval(intervalId);
+          intervalId = null;
+          startButton.disabled = false;
+          stopButton.disabled = true;
+        }
+      }
+
+      function resetCounter() {
+        stopCounter();
+        count = 0;
+        counterElement.textContent = count;
+      }
+
+      startButton.addEventListener("click", startCounter);
+      stopButton.addEventListener("click", stopCounter);
+      resetButton.addEventListener("click", resetCounter);
+    </script>
+  </body>
+</html>
