@@ -41,33 +41,12 @@
       <button id="stop">Stop</button>
       <button id="reset">Reset</button>
     </div>
-    <script>
-      let count = 0;
-      let intervalId = null;
 
+    <script>
       const counterElement = document.getElementById("counter");
       const startButton = document.getElementById("start");
       const stopButton = document.getElementById("stop");
       const resetButton = document.getElementById("reset");
-
-      const updateCounter = () => {
-        count++;
-        counterElement.textContent = count;
-      };
-
-      const start = () => {
-        if (intervalId === null) {
-          intervalId = setInterval(updateCounter, 1000);
-          startButton.disabled = true;
-          stopButton.disabled = false;
-        }
-      };
-
-      const stop = () => {
-        if (intervalId !== null) {
-          intervalId = setInterval(updateCounter, 1000);
-        }
-      };
     </script>
   </body>
 </html>
