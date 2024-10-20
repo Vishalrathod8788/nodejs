@@ -367,5 +367,37 @@
 // console.log(new Date().toString());
 // console.log(Date.now());
 
-let d = new Date(2024, 0, 15, 10, 30, 0);
-console.log(d.toLocaleString());
+// let d = new Date(2024, 0, 15, 10, 30, 0);
+// console.log(d.toLocaleString());
+
+// --------------------------------------------------------------------------------------------
+//                                         OOP in JS
+// --------------------------------------------------------------------------------------------
+
+// Object
+
+// let bioData = {
+//   Name: {
+//     realName: "Vishal",
+//     realSurname: "Rathod",
+//   },
+//   Age: 20,
+//   Hobby: "Watching Movies",
+//   getData() {
+//     console.log(
+//       `My name is ${bioData.Name.realName} and My Surname is ${bioData.Name.realSurname} and My Age is ${bioData.Age} and My Hobby is ${bioData.Hobby}`
+//     );
+//   },
+// };
+// console.log(bioData.Name.realName);
+// bioData.getData();
+
+// --------------------------------------------------------------------------------------------
+// Object Distructuring  ES7 2016
+
+let myData = {
+  myName: "Vishal",
+  mySurname: "Rathod",
+  myAge: 20,
+  myHobby: "Watching Movie",
+};

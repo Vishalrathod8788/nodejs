@@ -176,6 +176,6 @@
 
 // Method 3
 
-const div = () => `Total Div of ${(a = 10) / (b = 5)}`;
+// const div = () => `Total Div of ${(a = 10) / (b = 5)}`;
 
-console.log(div());
+// console.log(div());
