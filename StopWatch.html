@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Stopwatch</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .stopwatch {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      #display {
+        font-size: 48px;
+        margin: 20px 0;
+      }
+      .controls button {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stopwatch">
+      <h1>Stopwatch</h1>
+      <div id="display">00:00:00</div>
+      <div class="controls">
+        <button id="startStop">Start</button>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+    <script>
+      let timer;
+      let isRunning = false;
+      let seconds = 0;
+      let minutes = 0;
+      let hours = 0;
+
+      const display = document.getElementById("display");
+      const startStopButton = document.getElementById("startStop");
+      const resetButton = document.getElementById("reset");
+
+      function startStop() {
+        if (isRunning) {
+          clearInterval(timer);
+          startStopButton.textContent = "Start";
+          startStopButton.style.backgroundColor = "hsl(115, 100%, 48%)";
+          isRunning = false;
+        } else {
+          timer = setInterval(updateTime, 1000);
+          startStopButton.textContent = "Stop";
+          startStopButton.style.backgroundColor = "rgba(231, 7, 7, 0.87)";
+          isRunning = true;
+        }
+      }
+
+      function updateTime() {
+        seconds++;
+        if (seconds === 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes === 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        display.textContent = formatTime(hours, minutes, seconds);
+      }
+
+      function formatTime(hours, minutes, seconds) {
+        return (
+          (hours < 10 ? "0" + hours : hours) +
+          ":" +
+          (minutes < 10 ? "0" + minutes : minutes) +
+          ":" +
+          (seconds < 10 ? "0" + seconds : seconds)
+        );
+      }
+
+      function reset() {
+        clearInterval(timer);
+        isRunning = false;
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+        display.textContent = "00:00:00";
+        startStopButton.textContent = "Start";
+      }
+
+      startStopButton.addEventListener("click", startStop);
+      resetButton.addEventListener("click", reset);
+    </script>
+  </body>
+</html>
