@@ -591,16 +591,19 @@
 
 // ----------------------------------------------Synchronous JavaScript -------------------------------------------
 
-const fun2 = () => {
-  console.log("Function 2 is Called");
-};
+// const fun2 = () => {
+//   console.log("Function 2 is Called");
+// };
 
-const fun1 = () => {
-  console.log("Function 1 is call...");
-  fun2();
-  console.log("Function 1 is call...");
-};
+// const fun1 = () => {
+//   console.log("Function 1 is call...");
+//   fun2();
+//   console.log("Function 1 is call...");
+// };
 
-fun1();
+// fun1();
 
 // this example is Synchronous JavaScript 
+
+// ----------------------------------------------Asynchronous JavaScript -------------------------------------------
+
