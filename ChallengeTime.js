@@ -629,11 +629,13 @@
 //   return function (num2) {
 //     // console.log(num1, num2);
 //     return function (num3) {
-//       console.log(num1, num2, num3);
+//       console.log(num1+num2+num3);
 //     };
 //   };
 // }
 
-// sum(3)(5)(8);
+const sum = (num1) => (num2) => (num3) => console.log(num1 + num2 + num3);
 
-// that's called curring function 
+sum(3)(5)(8);
+
+// that's called curring function
