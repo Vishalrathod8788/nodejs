@@ -584,7 +584,7 @@ const first = () => {
     console.log(a + b + c);
   };
   second();
-  // console.log(a + b + c);
+  console.log(a + b + c);
 };
 
 first();
