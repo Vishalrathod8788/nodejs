@@ -395,16 +395,16 @@
 // --------------------------------------------------------------------------------------------
 // Object Distructuring  ES7 2016
 
-let myData = {
-  myName: "Vishal",
-  mySurname: "Rathod",
-  myAge: 20,
-  myHobby: "Watching Movie",
-};
+// let myData = {
+//   myName: "Vishal",
+//   mySurname: "Rathod",
+//   myAge: 20,
+//   myHobby: "Watching Movie",
+// };
 
-let { myName, mySurname, myAge, myHobby } = myData;
-console.log(myName);
-console.log(mySurname);
+// let { myName, mySurname, myAge, myHobby } = myData;
+// console.log(myName);
+// console.log(mySurname);
 
 // Object Dynamic Propertys:
 
@@ -441,12 +441,27 @@ console.log(mySurname);
 
 // -------------------------------------------Spread Operator ES6 --------------------------------------------
 
-const color = ["Green", "Grey", "Yellow"];
+// const color = ["Green", "Grey", "Yellow"];
 
-const myColor = ["Green", "Red", "White", "Grey", "Yellow"];
+// const myColor = ["Green", "Red", "White", "Grey", "Yellow"];
 
-const myFavColor = [...myColor];
+// const myFavColor = [...myColor];
 
-console.log(color);
-console.log(myColor);
-console.log(myFavColor);
+// console.log(color);
+// console.log(myColor);
+// console.log(myFavColor);
+
+// ----------------------------------------ES7 Array Prototype include --------------------------------------
+
+// 1. Array Property includes (include method)
+
+// let color = ["red", "green", "yellow", "pink"];
+// let isPresent = color.includes("red");
+// console.log(isPresent);
+
+// 2. Exponsiation Operator (**)
+
+// let num1 = 4;
+// console.log(num1**4);
+
+// ----------------------------------------ES7 Array Prototype include --------------------------------------
