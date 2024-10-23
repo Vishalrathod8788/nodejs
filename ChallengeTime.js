@@ -622,5 +622,18 @@
 
 // ----------------------------------------------Function Curring-------------------------------------------
 
+// Curring Function mean function in function in a function call that mean curring function
 
-Curring
+// function sum(num1) {
+//   // console.log(num1);
+//   return function (num2) {
+//     // console.log(num1, num2);
+//     return function (num3) {
+//       console.log(num1, num2, num3);
+//     };
+//   };
+// }
+
+// sum(3)(5)(8);
+
+// that's called curring function 
