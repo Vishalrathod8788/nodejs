@@ -603,7 +603,19 @@
 
 // fun1();
 
-// this example is Synchronous JavaScript 
+// this example is Synchronous JavaScript
 
 // ----------------------------------------------Asynchronous JavaScript -------------------------------------------
 
+// const fun1 = () => {
+//   setTimeout(() => {
+//     console.log("Function 1 Called!");
+//   }, 1000);
+// };
+
+// const fun2 = () => {
+//   console.log("Function 2 is Called...");
+//   fun1();
+//   console.log("Function 2 is Called...");
+// };
+// fun2();
