@@ -550,8 +550,25 @@
 
 // create Simple Calculator Method
 
+let sum = (num1, num2) => {
+  return num1 + num2;
+};
 
+let sub = (num1, num2) => {
+  return num1 - num2;
+};
 
+let multi = (num1, num2) => {
+  return num1 * num2;
+};
+
+let div = (num1, num2) => {
+  return num1 / num2;
+};
+
+const Calculator = (num1, num2, operator) => {
+  return operator(num1, num2);
+};
 
 const ans = Calculator(5, 2, sub); // Calculator is Higher Oder Function and sub() is Call Back Function
 console.log(ans);
