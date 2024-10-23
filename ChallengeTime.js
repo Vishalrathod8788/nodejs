@@ -574,17 +574,17 @@
 // console.log(ans);
 
 // ----------------------------------------------Lexical Scoping------------------------------------------------
-let a = "Hi";
+// let a = "Hi";
 
-const first = () => {
-  let b = " How are you ?";
+// const first = () => {
+//   let b = " How are you ?";
 
-  const second = () => {
-    let c = " I'm fine Thank you!!";
-    console.log(a + b + c);
-  };
-  second();
-  console.log(a + b + c);
-};
+//   const second = () => {
+//     let c = " I'm fine Thank you!!";
+//     console.log(a + b + c);
+//   };
+//   second();
+//   // console.log(a + b + c);
+// };
 
-first();
+// first();
