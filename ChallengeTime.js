@@ -395,9 +395,26 @@
 // --------------------------------------------------------------------------------------------
 // Object Distructuring  ES7 2016
 
-let myData = {
-  myName: "Vishal",
-  mySurname: "Rathod",
-  myAge: 20,
-  myHobby: "Watching Movie",
-};
+// let myData = {
+//   myName: "Vishal",
+//   mySurname: "Rathod",
+//   myAge: 20,
+//   myHobby: "Watching Movie",
+// };
+
+// let { myName, mySurname, myAge, myHobby } = myData;
+// console.log(myName);
+// console.log(mySurname);
+
+// Object Dynamic Propertys:
+
+// let myName = "Vishal";
+// let myAge = 20;
+
+// const bioData = {
+//   [myName]: "Hello, How are You",
+//   [16+4] : "is my age",
+// };
+// console.log(bioData);
+
+let 
