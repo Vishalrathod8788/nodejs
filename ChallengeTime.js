@@ -464,4 +464,13 @@
 // let num1 = 4;
 // console.log(num1**4);
 
-// ----------------------------------------ES7 Array Prototype include --------------------------------------
+// ----------------------------------------------- ES8 ------------------------------------------------
+// *ES8 Feature*
+// 1. String Padding
+// 2. Object Value
+// 3. Object Entries
+
+// 1. String Padding
+let Name = "Vishal".padEnd(10);
+
+console.log(Name);
