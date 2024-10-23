@@ -477,9 +477,20 @@
 
 // 2. Object Value
 
-let Person = {
-  name: "Men",
-  age: 20,
-};
+// let Person = {
+//   name: "Men",
+//   age: 20,
+// };
 
-console.log(Object.values(Person));
+// console.log(Object.values(Person));
+
+// 3. Object Entries
+
+// let Person = {
+//   name: "Men",
+//   age: 20,
+// };
+
+// console.log(Object.entries(Person)); // convert in arrays
+
+// ----------------------------------------------- ES9 ------------------------------------------------
