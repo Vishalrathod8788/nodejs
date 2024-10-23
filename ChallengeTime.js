@@ -395,16 +395,16 @@
 // --------------------------------------------------------------------------------------------
 // Object Distructuring  ES7 2016
 
-// let myData = {
-//   myName: "Vishal",
-//   mySurname: "Rathod",
-//   myAge: 20,
-//   myHobby: "Watching Movie",
-// };
+let myData = {
+  myName: "Vishal",
+  mySurname: "Rathod",
+  myAge: 20,
+  myHobby: "Watching Movie",
+};
 
-// let { myName, mySurname, myAge, myHobby } = myData;
-// console.log(myName);
-// console.log(mySurname);
+let { myName, mySurname, myAge, myHobby } = myData;
+console.log(myName);
+console.log(mySurname);
 
 // Object Dynamic Propertys:
 
@@ -417,4 +417,36 @@
 // };
 // console.log(bioData);
 
-let 
+// ----------------------------------------------------------------------------------------------------------
+// ---------------------------------------------Object Property ES6------------------------------------------
+// let myName = "Vishal";
+// let myAge = 20;
+
+// const bioData1 = {
+//   myName : myName,
+//   myAge : myAge,
+// };
+
+// const bioData = {
+//   myName,
+//   myAge,
+// };
+
+// console.log(bioData);
+// console.log(bioData1);
+
+// Both output will come same :
+
+// ----------------------------------------------------------------------------------------------------------
+
+// -------------------------------------------Spread Operator ES6 --------------------------------------------
+
+const color = ["Green", "Grey", "Yellow"];
+
+const myColor = ["Green", "Red", "White", "Grey", "Yellow"];
+
+const myFavColor = [...myColor];
+
+console.log(color);
+console.log(myColor);
+console.log(myFavColor);
