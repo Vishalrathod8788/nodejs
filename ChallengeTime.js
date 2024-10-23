@@ -572,3 +572,7 @@ const Calculator = (num1, num2, operator) => {
 
 const ans = Calculator(5, 2, sub); // Calculator is Higher Oder Function and sub() is Call Back Function
 console.log(ans);
+
+// ----------------------------------------------Lexical Scoping------------------------------------------------
+
+
