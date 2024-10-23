@@ -471,6 +471,15 @@
 // 3. Object Entries
 
 // 1. String Padding
-let Name = "Vishal".padEnd(10);
 
-console.log(Name);
+// let Name = "Vishal".padEnd(10);
+// console.log(Name);
+
+// 2. Object Value
+
+let Person = {
+  name: "Men",
+  age: 20,
+};
+
+console.log(Object.values(Person));
