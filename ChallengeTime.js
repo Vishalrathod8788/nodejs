@@ -494,3 +494,81 @@
 // console.log(Object.entries(Person)); // convert in arrays
 
 // ----------------------------------------------- ES9 ------------------------------------------------
+
+// 1. Spread Operator Using in Object
+// 2. Flat Array
+
+// 1. Spread Operator Using in Object
+
+// let Person = {
+//   name: "Men",
+//   age: 20,
+// };
+
+// let Person1 = { ...Person };
+
+// console.log(Person1);
+
+// 2. Flat Array
+
+// let arr = [
+//   ["zone1", "zone2"],
+//   ["zone3", "zone4"],
+//   ["zone5", "zone6"],
+//   ["zone7", ["subZone1", "subZone2"], "zone8"],
+//   ["zone9", ["subZone1", "subZone2"]],
+// ];
+// // console.log(arr);
+// console.log(arr.flat(Infinity));
+
+// 3. Object.fromEntries
+
+// let Person = {
+//   name: "Men",
+//   age: 20,
+// };
+
+// const arrToObj = Object.entries(Person); // Convert Object to Array
+// console.log(Object.fromEntries(arrToObj)); // Convert Array to Object
+
+// ----------------------------------------------- ES2020 ------------------------------------------------
+
+// 1. BigInt
+
+// let oldNum = Number.MAX_SAFE_INTEGER;
+// console.log(oldNum);
+
+// --------------------------------------2014 ES Update feature :- use strict--------------------------------------
+// "use strict";
+
+// let x = 3.14;
+// console.log(x);
+
+// ----------------------------------------------Advance JS------------------------------------------------
+
+// * Call Back and Higher Oreder Function in Advance JavaScript
+
+// create Simple Calculator Method
+
+let sum = (num1, num2) => {
+  return num1 + num2;
+};
+
+let sub = (num1, num2) => {
+  return num1 - num2;
+};
+
+let multi = (num1, num2) => {
+  return num1 * num2;
+};
+
+let div = (num1, num2) => {
+  return num1 / num2;
+};
+
+const Calculator = (num1, num2, operator) => {
+  return operator(num1, num2);
+};
+
+const ans = Calculator(5, 2, sub); // Calculator is Higher Oder Function and sub() is Call Back Function
+console.log(ans);
