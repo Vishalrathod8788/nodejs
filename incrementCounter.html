@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Counter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            max-width: 1000px;
+        }
+        .counter-box {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            font-size: 48px;
+            color: #0066cc;
+        }
+        .count {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .text {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="counter-box">
+            <i class="icon fas fa-check-circle"></i>
+            <div class="count" id="completionCount">0</div>
+            <div class="text">Projects Completed</div>
+        </div>
+        <div class="counter-box">
+            <i class="icon fas fa-smile"></i>
+            <div class="count" id="clientCount">0</div>
+            <div class="text">Happy Clients</div>
+        </div>
+        <div class="counter-box">
+            <i class="icon fas fa-project-diagram"></i>
+            <div class="count" id="ongoingCount">0</div>
+            <div class="text">Ongoing Projects</div>
+        </div>
+    </div>
+
+    <script>
+        function animateCounter(element, start, end, duration) {
+            let current = start;
+            const range = end - start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current;
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            animateCounter(document.getElementById('completionCount'), 0, 1500, 3000);
+            animateCounter(document.getElementById('clientCount'), 1, 1500, 3000);
+            animateCounter(document.getElementById('ongoingCount'), 0, 500, 3000);
+        });
+    </script>
+</body>
+</html>
