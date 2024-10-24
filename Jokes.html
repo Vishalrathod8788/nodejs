@@ -51,7 +51,31 @@
     <div class="joke-container">
       <h1>Best Jokes</h1>
       <p class="joke-text" id="joke">Awesome Joke is Loading...!</p>
-      <button class="next-button">Next Joke</button>
+      <button class="next-button" id="jokeBtn">Next Joke</button>
     </div>
+
+    <script>
+      // GET https://icanhazdadjoke.com/
+      const joke = document.querySelector("#joke");
+      const jokeBtn = document.querySelector("#jokeBtn");
+
+      const GenerateJokes = () => {
+        const setHeader = {
+          headers: {
+            Accept: "application/json",
+          },
+        };
+        fetch("https://icanhazdadjoke.com/", setHeader)
+          .then((res) => {
+            console.log(res.json());
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+      jokeBtn.addEventListener("click", GenerateJokes);
+      GenerateJokes();
+    </script>
   </body>
 </html>
