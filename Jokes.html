@@ -24,13 +24,14 @@
         width: 100%;
       }
       h1 {
-        color: #333;
+        color: #333333;
       }
       .joke-text {
         font-size: 18px;
-        color: #666;
+        color: #000;
         margin: 20px 0;
         min-height: 60px;
+        font-family: 'Courier New', Courier, monospace;
       }
       .next-button {
         background-color: #0066cc;
@@ -50,12 +51,11 @@
   <body>
     <div class="joke-container">
       <h1>Best Jokes</h1>
-      <p class="joke-text" id="joke">Awesome Joke is Loading...!</p>
+      <p class="joke-text" id="joke"></p>
       <button class="next-button" id="jokeBtn">Next Joke</button>
     </div>
 
     <script>
-      // GET https://icanhazdadjoke.com/
       const joke = document.querySelector("#joke");
       const jokeBtn = document.querySelector("#jokeBtn");
 
@@ -65,9 +65,11 @@
             Accept: "application/json",
           },
         };
+        // Promises
         fetch("https://icanhazdadjoke.com/", setHeader)
-          .then((res) => {
-            console.log(res.json());
+          .then((res) => res.json())
+          .then((data) => {
+            joke.innerHTML = data.joke;
           })
           .catch((error) => {
             console.log(error);
