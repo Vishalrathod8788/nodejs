@@ -642,28 +642,28 @@
 
 // ----------------------------------------------CallBack Hell-------------------------------------------
 
-setTimeout(() => {
-  console.log("Tast 1 is Completed");
-  setTimeout(() => {
-    console.log("Tast 2 is Completed");
-    setTimeout(() => {
-      console.log("Tast 3 is Completed");
-      setTimeout(() => {
-        console.log("Tast 4 is Completed");
-        setTimeout(() => {
-          console.log("Tast 5 is Completed");
-          setTimeout(() => {
-            console.log("Tast 6 is Completed");
-            setTimeout(() => {
-              console.log("Tast 7 is Completed");
-              setTimeout(() => {
-                console.log("Tast 8 is Completed");
-              }, 1000);
-            }, 1000);
-          }, 1000);
-        }, 1000);
-      }, 1000);
-    }, 1000);
-  }, 1000);
-}, 1000);
+// setTimeout(() => {
+//   console.log("Tast 1 is Completed");
+//   setTimeout(() => {
+//     console.log("Tast 2 is Completed");
+//     setTimeout(() => {
+//       console.log("Tast 3 is Completed");
+//       setTimeout(() => {
+//         console.log("Tast 4 is Completed");
+//         setTimeout(() => {
+//           console.log("Tast 5 is Completed");
+//           setTimeout(() => {
+//             console.log("Tast 6 is Completed");
+//             setTimeout(() => {
+//               console.log("Tast 7 is Completed");
+//               setTimeout(() => {
+//                 console.log("Tast 8 is Completed");
+//               }, 1000);
+//             }, 1000);
+//           }, 1000);
+//         }, 1000);
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
 
