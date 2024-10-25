@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       const titleInput = document.createElement("input");
+      titleInput.style.backgroundColor = "#f5c827";
+      //   titleInput.style.color = "#ffff";
       titleInput.type = "text";
       titleInput.value = note.title;
       titleInput.classList.add("w-full", "mb-2", "font-bold");
@@ -46,7 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
       actionsDiv.classList.add("flex", "justify-end", "space-x-2");
 
       const editSaveBtn = document.createElement("button");
-      editSaveBtn.textContent = note.isEditing ? "Save" : "Edit";
+      editSaveBtn.innerHTML = note.isEditing
+        ? '<i class="fas fa-save"></i>'
+        : '<i class="fas fa-edit"></i>';
       editSaveBtn.classList.add("bg-transparent", "border-none");
       editSaveBtn.addEventListener("click", () => {
         note.isEditing = !note.isEditing;
@@ -55,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const deleteBtn = document.createElement("button");
-      deleteBtn.textContent = "Delete";
+      deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
       deleteBtn.classList.add("bg-transparent", "border-none");
       deleteBtn.addEventListener("click", () => {
         notes = notes.filter((n) => n.id !== note.id);

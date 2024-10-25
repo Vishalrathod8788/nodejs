@@ -15,13 +15,16 @@ body {
   }
   
   .bg-yellow-500 {
-    background-color: #ecc94b;
+    background-color: #f5d972;
   }
   
   .text-white {
-    color: white;
+    color: black;
   }
   
+  #title{
+    background-color: #f5c827;
+  }
   .p-4 {
     padding: 1rem;
   }
@@ -98,5 +101,69 @@ body {
   
   button:hover {
     cursor: pointer;
+  }
+  
+  .bg-white {
+    background-color: #ffffff;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transition-transform {
+    transition: transform 0.2s;
+  }
+  
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  #title {
+    background-color: f5c827;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .min-h-\[100px\] {
+    min-height: 100px;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .justify-end {
+    justify-content: flex-end;
+  }
+  
+  .space-x-2 {
+    margin-right: 0.5rem;
+  }
+  
+  .bg-transparent {
+    background-color: transparent;
+  }
+  
+  .border-none {
+    border: none;
+  }
+  
+  button i {
+    pointer-events: none;
   }
   
