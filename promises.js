@@ -1,14 +1,14 @@
 const myPro = new Promise((resolve, reject) => {
-    // setTimeout (() => {
-    //     resolve('success')
-    // }, 1000)
+    setTimeout (() => {
+        resolve('success')
+    }, 1000)
 
-    setTimeout(() => {
-        resolve('Success')
-    }, 2000)
+    // setTimeout(() => {
+    //     resolve('Success')
+    // }, 2000)
 })
 
-// console.log(myPro)
+console.log(myPro)
 
 myPro.then((result) => {
     console.log(result)
