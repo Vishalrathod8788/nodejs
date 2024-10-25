@@ -113,82 +113,78 @@
     <button class="add-note" id="addNote">+</button>
 
     <script>
+      // Get important elements
       const notesGrid = document.getElementById("notesGrid");
       const addNoteBtn = document.getElementById("addNote");
+
+      // Load notes from localStorage or start with an empty array
       let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-      function createNoteElement(noteData, index) {
-        const note = document.createElement("div");
-        note.className = "note";
-        note.innerHTML = `
-                <input class="note-title" value="${noteData.title}" placeholder="Title">
-                <textarea class="note-content" placeholder="Take a note...">${noteData.content}</textarea>
+      // Function to create a new note element
+      function createNoteElement(note) {
+        const noteDiv = document.createElement("div");
+        noteDiv.className = "note";
+        noteDiv.innerHTML = `
+                <input class="note-title" value="${note.title}" placeholder="Title">
+                <textarea class="note-content" placeholder="Take a note...">${note.content}</textarea>
                 <div class="note-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="save-btn"><i class="fas fa-save"></i></button>
                     <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
                 </div>
             `;
 
-        const titleInput = note.querySelector(".note-title");
-        const textarea = note.querySelector(".note-content");
-        const editBtn = note.querySelector(".edit-btn");
-        const deleteBtn = note.querySelector(".delete-btn");
+        const titleInput = noteDiv.querySelector(".note-title");
+        const contentTextarea = noteDiv.querySelector(".note-content");
+        const saveBtn = noteDiv.querySelector(".save-btn");
+        const deleteBtn = noteDiv.querySelector(".delete-btn");
 
-        function toggleEditMode() {
-          const isEditing = !titleInput.readOnly;
-          titleInput.readOnly = isEditing;
-          textarea.readOnly = isEditing;
-          editBtn.innerHTML = isEditing
-            ? '<i class="fas fa-edit"></i>'
-            : '<i class="fas fa-save"></i>';
-          if (!isEditing) {
-            updateNoteData();
-          }
-        }
+        // Save button click event
+        saveBtn.addEventListener("click", function () {
+          note.title = titleInput.value;
+          note.content = contentTextarea.value;
+          saveNotes();
+        });
 
-        function updateNoteData() {
-          noteData.title = titleInput.value;
-          noteData.content = textarea.value;
-          updateLocalStorage();
-        }
-
-        titleInput.addEventListener("input", updateNoteData);
-        textarea.addEventListener("input", updateNoteData);
-
-        editBtn.addEventListener("click", toggleEditMode);
-
-        deleteBtn.addEventListener("click", () => {
-          notes.splice(index, 1);
-          updateLocalStorage();
+        // Delete button click event
+        deleteBtn.addEventListener("click", function () {
+          notes = notes.filter((n) => n.id !== note.id);
+          saveNotes();
           renderNotes();
         });
 
-        // Initialize in edit mode
-        toggleEditMode();
-
-        return note;
+        return noteDiv;
       }
 
+      // Function to add a new note
       function addNewNote() {
-        notes.push({ title: "", content: "", isEditing: true });
-        updateLocalStorage();
+        const newNote = {
+          id: Date.now(),
+          title: "",
+          content: "",
+        };
+        notes.unshift(newNote);
+        saveNotes();
         renderNotes();
       }
 
-      function updateLocalStorage() {
+      // Function to save notes to localStorage
+      function saveNotes() {
         localStorage.setItem("notes", JSON.stringify(notes));
       }
 
+      // Function to render all notes
       function renderNotes() {
         notesGrid.innerHTML = "";
-        notes.forEach((note, index) => {
-          const noteElement = createNoteElement(note, index);
+        notes.forEach((note) => {
+          const noteElement = createNoteElement(note);
           notesGrid.appendChild(noteElement);
         });
       }
 
+      // Add note button click event
       addNoteBtn.addEventListener("click", addNewNote);
 
+      // Initial render of notes
       renderNotes();
     </script>
   </body>
