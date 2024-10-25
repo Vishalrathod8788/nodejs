@@ -70,36 +70,25 @@
       const counter = document.querySelectorAll(".count");
 
       counter.forEach((count) => {
-        // console.log(count);
         count.innerHTML = "0";
 
         const updateCount = () => {
           const target = count.getAttribute("data-target");
-          console.log(target);
+
+          const startCount = Number(count.innerHTML);
+
+          const incr = target / 100;
+
+          if (target > startCount) {
+            count.innerHTML = `${Math.round(startCount + incr)}`;
+            setTimeout(updateCount, 10);
+          } else {
+            count.innerHTML = target;
+          }
         };
 
         updateCount();
       });
-
-      // function animateCounter(element, start, end, duration) {
-      //     let current = start;
-      //     const range = end - start;
-      //     const increment = end > start ? 1 : -1;
-      //     const stepTime = Math.abs(Math.floor(duration / range));
-      //     const timer = setInterval(() => {
-      //         current += increment;
-      //         element.textContent = current;
-      //         if (current == end) {
-      //             clearInterval(timer);
-      //         }
-      //     }, stepTime);
-      // }
-
-      // document.addEventListener('DOMContentLoaded', () => {
-      //     animateCounter(document.getElementById('completionCount'), 0, 1500, 3000);
-      //     animateCounter(document.getElementById('clientCount'), 1, 1500, 3000);
-      //     animateCounter(document.getElementById('ongoingCount'), 0, 500, 3000);
-      // });
     </script>
   </body>
 </html>
