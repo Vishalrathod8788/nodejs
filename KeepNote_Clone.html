@@ -7,29 +7,14 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    /> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      .raleway-uniqu {
-        font-family: "Raleway", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: normal;
-        font-style: normal;
-      }
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Raleway", sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
@@ -39,7 +24,6 @@
         color: white;
         padding: 20px;
         text-align: center;
-        font-family: "Raleway", sans-serif;
       }
       .container {
         max-width: 1200px;
@@ -84,26 +68,37 @@
         transform: translateY(-5px);
       }
       .note-title {
+        width: 100%;
         font-size: 18px;
         font-weight: bold;
+        border: none;
+        outline: none;
         margin-bottom: 10px;
       }
       .note-content {
+        width: 100%;
+        min-height: 100px;
+        border: none;
+        resize: vertical;
+        font-family: "Raleway", sans-serif;
         font-size: 14px;
-        color: #555;
+        margin-bottom: 10px;
+        outline: none;
       }
       .note-actions {
         display: flex;
         justify-content: flex-end;
-        margin-top: 10px;
       }
-      .note-actions i {
+      .note-actions button {
+        background: none;
+        border: none;
         cursor: pointer;
+        font-size: 16px;
         margin-left: 10px;
         color: #888;
         transition: color 0.3s ease;
       }
-      .note-actions i:hover {
+      .note-actions button:hover {
         color: #fbbc04;
       }
     </style>
@@ -112,66 +107,89 @@
     <header class="header">
       <h1><i class="fa-solid fa-note-sticky"></i> My Keep Note</h1>
     </header>
-    <h1></h1>
     <div class="container">
       <div class="notes-grid" id="notesGrid"></div>
     </div>
     <button class="add-note" id="addNote">+</button>
 
     <script>
-      // const notesGrid = document.getElementById('notesGrid');
-      // const addNoteBtn = document.getElementById('addNote');
+      const notesGrid = document.getElementById("notesGrid");
+      const addNoteBtn = document.getElementById("addNote");
+      let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-      // let notes = [];
+      function createNoteElement(noteData, index) {
+        const note = document.createElement("div");
+        note.className = "note";
+        note.innerHTML = `
+                <input class="note-title" value="${noteData.title}" placeholder="Title">
+                <textarea class="note-content" placeholder="Take a note...">${noteData.content}</textarea>
+                <div class="note-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            `;
 
-      // function createNote(title, content) {
-      //     const note = document.createElement('div');
-      //     note.className = 'note';
-      //     note.innerHTML = `
-      //         <div class="note-title">${title}</div>
-      //         <div class="note-content">${content}</div>
-      //         <div class="note-actions">
-      //             <i class="fas fa-edit" onclick="editNote(this)"></i>
-      //             <i class="fas fa-trash-alt" onclick="deleteNote(this)"></i>
-      //         </div>
-      //     `;
-      //     notesGrid.appendChild(note);
-      // }
+        const titleInput = note.querySelector(".note-title");
+        const textarea = note.querySelector(".note-content");
+        const editBtn = note.querySelector(".edit-btn");
+        const deleteBtn = note.querySelector(".delete-btn");
 
-      // function addNote() {
-      //     const title = prompt('Enter note title:');
-      //     const content = prompt('Enter note content:');
-      //     if (title && content) {
-      //         createNote(title, content);
-      //         notes.push({ title, content });
-      //     }
-      // }
+        function toggleEditMode() {
+          const isEditing = !titleInput.readOnly;
+          titleInput.readOnly = isEditing;
+          textarea.readOnly = isEditing;
+          editBtn.innerHTML = isEditing
+            ? '<i class="fas fa-edit"></i>'
+            : '<i class="fas fa-save"></i>';
+          if (!isEditing) {
+            updateNoteData();
+          }
+        }
 
-      // function editNote(element) {
-      //     const noteElement = element.closest('.note');
-      //     const titleElement = noteElement.querySelector('.note-title');
-      //     const contentElement = noteElement.querySelector('.note-content');
+        function updateNoteData() {
+          noteData.title = titleInput.value;
+          noteData.content = textarea.value;
+          updateLocalStorage();
+        }
 
-      //     const newTitle = prompt('Edit note title:', titleElement.textContent);
-      //     const newContent = prompt('Edit note content:', contentElement.textContent);
+        titleInput.addEventListener("input", updateNoteData);
+        textarea.addEventListener("input", updateNoteData);
 
-      //     if (newTitle && newContent) {
-      //         titleElement.textContent = newTitle;
-      //         contentElement.textContent = newContent;
-      //     }
-      // }
+        editBtn.addEventListener("click", toggleEditMode);
 
-      // function deleteNote(element) {
-      //     if (confirm('Are you sure you want to delete this note?')) {
-      //         element.closest('.note').remove();
-      //     }
-      // }
+        deleteBtn.addEventListener("click", () => {
+          notes.splice(index, 1);
+          updateLocalStorage();
+          renderNotes();
+        });
 
-      // addNoteBtn.addEventListener('click', addNote);
+        // Initialize in edit mode
+        toggleEditMode();
 
-      // // Create some initial notes
-      // createNote('Welcome', 'Welcome to My Keep Note! Click the + button to add a new note.');
-      // createNote('How to use', 'Click on the edit icon to update a note, or the trash icon to delete it.');
+        return note;
+      }
+
+      function addNewNote() {
+        notes.push({ title: "", content: "", isEditing: true });
+        updateLocalStorage();
+        renderNotes();
+      }
+
+      function updateLocalStorage() {
+        localStorage.setItem("notes", JSON.stringify(notes));
+      }
+
+      function renderNotes() {
+        notesGrid.innerHTML = "";
+        notes.forEach((note, index) => {
+          const noteElement = createNoteElement(note, index);
+          notesGrid.appendChild(noteElement);
+        });
+      }
+
+      addNoteBtn.addEventListener("click", addNewNote);
+
+      renderNotes();
     </script>
   </body>
 </html>
