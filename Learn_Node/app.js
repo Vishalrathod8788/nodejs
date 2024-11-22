@@ -7,4 +7,3 @@ let ans = arr.map((num) => {
 });
 
 console.log(ans);
-
