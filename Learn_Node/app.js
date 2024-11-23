@@ -1,3 +1,3 @@
-console.log("Hey...");
+console.log("Without global variable :- Hey...");
 
-global.console.log("Hey...");
+global.console.log("Using Global :- Hey...");
