@@ -1,5 +1,9 @@
-console.log("Without global variable :- Hey...");
+// console.log("Without global variable :- Hey...");
 
-global.console.log("Using Global :- Hey...");
+// global.console.log("Using Global :- Hey...");
 
-console.log(global);
+// globalThis.console.log(globalThis.process);
+
+// globalThis.console.log(process);
+
+console.log(globalThis.module);
