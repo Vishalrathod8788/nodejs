@@ -1,9 +1,13 @@
-// console.log("Without global variable :- Hey...");
+const math = require("./math");
 
-// global.console.log("Using Global :- Hey...");
+console.log(`Addition:`, math.add(5, 10));
 
-// globalThis.console.log(globalThis.process);
+console.log(`Subtraction:`, math.sub(5, 10));
 
-// globalThis.console.log(process);
+console.log(`Multuplication:`, math.mult(5, 10));
 
-console.log(globalThis.module);
+console.log(`Division:`, math.div(5, 10));
+
+console.log(`PI:`, math.PI);
+
+// this is common JS
