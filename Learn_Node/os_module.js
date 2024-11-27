@@ -27,3 +27,7 @@ console.log("Network Interfaces: " + os.networkInterfaces());
 // 6. os.platform()
 // Returns the operating system platform
 console.log("OS Platform: " + os.platform());
+
+// 7. os.release()
+// Returns the operating system as a string
+console.log("OS Release: " + os.release());
