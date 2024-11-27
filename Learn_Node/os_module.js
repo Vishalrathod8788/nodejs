@@ -11,3 +11,7 @@ console.log("OS CPU architecture: " + os.arch());
 // 2. os.cpus()
 // Returns an array of objects containing information about each CPU/core
 console.log("Free memory: " + os.freemem());
+
+// 3. os.homedir()
+// Returns the home directory of the current user
+console.log("Home directory: " + os.homedir());
