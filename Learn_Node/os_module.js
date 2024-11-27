@@ -39,3 +39,7 @@ console.log("OS Temporary directory: " + os.tmpdir());
 // 9. os.type()
 // Returns the operating system name
 console.log("OS Type: " + os.type());
+
+// 10. os.uptime()
+// Returns the system uptime in number of seconds
+console.log("OS Uptime: " + os.uptime());
