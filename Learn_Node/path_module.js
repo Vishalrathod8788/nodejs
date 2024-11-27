@@ -8,4 +8,5 @@ console.log(path.parse(filePath));
 console.log(path.resolve("Folder", "Student", "Data.txt"));
 console.log(path.basename(filePath));
 console.log(path.dirname(filePath));
-
+console.log(path.extname(filePath));
+console.log(path.sep);
