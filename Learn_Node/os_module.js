@@ -15,3 +15,8 @@ console.log("Free memory: " + os.freemem());
 // 3. os.homedir()
 // Returns the home directory of the current user
 console.log("Home directory: " + os.homedir());
+
+// 4. os.hostname()
+// Returns the hostname of the operating system
+console.log("Hostname: " + os.hostname());
+
