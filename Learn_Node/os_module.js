@@ -31,3 +31,7 @@ console.log("OS Platform: " + os.platform());
 // 7. os.release()
 // Returns the operating system as a string
 console.log("OS Release: " + os.release());
+
+// 8. os.tmpdir()
+// Returns the operating system's default directory for temporary files
+console.log("OS Temporary directory: " + os.tmpdir());
