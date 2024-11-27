@@ -20,3 +20,6 @@ console.log("Home directory: " + os.homedir());
 // Returns the hostname of the operating system
 console.log("Hostname: " + os.hostname());
 
+// 5. os.networkInterfaces()
+// Returns an object containing only the network interfaces that have a MAC address
+console.log("Network Interfaces: " + os.networkInterfaces());
