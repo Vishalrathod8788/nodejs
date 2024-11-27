@@ -23,3 +23,7 @@ console.log("Hostname: " + os.hostname());
 // 5. os.networkInterfaces()
 // Returns an object containing only the network interfaces that have a MAC address
 console.log("Network Interfaces: " + os.networkInterfaces());
+
+// 6. os.platform()
+// Returns the operating system platform
+console.log("OS Platform: " + os.platform());
