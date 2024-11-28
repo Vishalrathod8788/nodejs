@@ -18,3 +18,6 @@ console.log(randomInt);
 const buffer1 = Buffer.from("Hello, World!");
 const buffer2 = Buffer.from("Hello, World!");
 console.log(crypto.timingSafeEqual(buffer1, buffer2));
+
+// getFips
+console.log(crypto.getFips());
