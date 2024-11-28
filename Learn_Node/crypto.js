@@ -9,3 +9,7 @@ console.log(hash.digest("hex"));
 // rendombyte
 const randomBytes = crypto.randomBytes(16);
 console.log(randomBytes.toString("hex"));
+
+// randomInt
+const randomInt = crypto.randomInt(10, 100);
+console.log(randomInt);
