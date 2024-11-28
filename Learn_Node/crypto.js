@@ -21,3 +21,12 @@ console.log(crypto.timingSafeEqual(buffer1, buffer2));
 
 // getFips
 console.log(crypto.getFips());
+
+// getCiphers
+console.log(crypto.getCiphers());
+
+// getCurves
+console.log(crypto.getCurves());
+
+// getHashes
+console.log(crypto.getHashes());
