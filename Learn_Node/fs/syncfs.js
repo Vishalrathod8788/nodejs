@@ -3,25 +3,29 @@ const fs = require("fs");
 
 const fileName = "test.txt";
 
-// const writefile = fs.writeFileSync(
-//   fileName,
-//   "This is the initial comment",
-//   "utf-8"
-// );
+const writefile = fs.writeFileSync(
+  fileName,
+  "This is the initial comment",
+  "utf-8"
+);
 
-// console.log(writefile);
+console.log(writefile);
 
 // Read File
 
-// const readfile = fs.readFileSync(fileName, "utf-8");
-// console.log("Read :", readfile);
+const readfile = fs.readFileSync(fileName, "utf-8");
+console.log("Read :", readfile);
 
 // Update File
-// const updateFile = fs.appendFileSync(fileName, "This is the updated comment");
-// console.log(updateFile);
-// const readfile2 = fs.readFileSync(fileName, "utf-8");
-// console.log("Update :", readfile2);
+const updateFile = fs.appendFileSync(fileName, "This is the updated comment");
+console.log(updateFile);
+const readfile2 = fs.readFileSync(fileName, "utf-8");
+console.log("Update :", readfile2);
 
 // fs.unlink
 // const deleteFile = fs.unlinkSync(fileName);
 // console.log(deleteFile);
+
+// fs.renameSync
+const renameFile = fs.renameSync(fileName, "newTest.txt");
+console.log(renameFile);
