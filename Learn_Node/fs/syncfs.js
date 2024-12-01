@@ -1,7 +1,7 @@
 // utf-8 (8-bit Unicode Transformation Format) --> Encode character from nearly all written language
 const fs = require("fs");
 
-const fileName = "test.txt";
+const fileName = "newTest.txt";
 
 const writefile = fs.writeFileSync(
   fileName,
@@ -22,9 +22,9 @@ console.log(updateFile);
 const readfile2 = fs.readFileSync(fileName, "utf-8");
 console.log("Update :", readfile2);
 
-// fs.unlink
-// const deleteFile = fs.unlinkSync(fileName);
-// console.log(deleteFile);
+fs.unlink
+const deleteFile = fs.unlinkSync(fileName);
+console.log(deleteFile);
 
 // fs.renameSync
 const renameFile = fs.renameSync(fileName, "newTest.txt");
