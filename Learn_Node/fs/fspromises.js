@@ -14,7 +14,7 @@ fs.promises
 
 const updateData = "new update File";
 fs.promises
-  .writeFile(fileName, updateData, "utf-8")
+  .writeFile(fileName, updateData, "")
   .then(() => console.log("File written successfully:", updateData))
   .catch((error) => {
     // Write error to error.txt file
