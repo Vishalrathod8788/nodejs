@@ -1,3 +1,4 @@
+const { error, log } = require("console");
 const fs = require("fs");
 const path = require("path");
 
@@ -9,5 +10,20 @@ const filePath = path.join(__dirname, fileName);
 
 fs.promises
   .readdir(dirName)
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
+fs.promises
+  .readFile(fileName, "utf-8")
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
+fs.promises
+  .writeFile(fileName, "update File", "utf-8")
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
+fs.promises
+  .unlink(fileName)
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
