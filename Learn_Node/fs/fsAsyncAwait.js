@@ -1,12 +1,8 @@
+const { writeFile } = require("fs");
 const fs = require("fs/promises");
 const path = require("path");
 
 const fileName = "asyncFile.txt";
-const filePath = path.join(__dirname, fileName);
-
-// fs.readdir(__dirname)
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error));
 
 const readFolder = async () => {
   try {
@@ -17,4 +13,15 @@ const readFolder = async () => {
   }
 };
 
+const data = "Update Hello World";
+const writeFileData = async () => {
+  try {
+    const res = await fs.writeFile(fileName, data, "utf-8");
+    console.log("Data Write Successfully");
+  } catch (error) {
+    console.log(`custome error : ${error}`);
+  }
+};
+
 readFolder();
+writeFileData();
