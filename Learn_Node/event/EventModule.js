@@ -1,5 +1,4 @@
 //Import  Emitter Class
-const { clear } = require("console");
 const EventEmitter = require("events");
 
 // Create an Instance of EventEmitter
