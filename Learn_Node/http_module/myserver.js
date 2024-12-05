@@ -20,3 +20,5 @@ const PORT = 3000;
 myServer.listen(PORT, () => {
   console.log(`Server Started PORT on ${PORT}`);
 });
+
+myServer.emit("start");
