@@ -1,24 +1,18 @@
 const http = require("http");
 
-const myServer = http.createServer((req, res) => {
+const myserver = http.createServer((req, res) => {
   if (req.url === "/") {
-    res.end("Welcome to our home page");
+    res.write("Welcome to Home Page");
+    res.end();
   }
-
   if (req.url === "/about") {
-    res.end("Welcome to our about page");
-  }
-
-  if (req.url === "/contact") {
-    res.write("Welcome to our contact page");
+    res.write("Welcome to About Page");
     res.end();
   }
 });
 
 const PORT = 3000;
 
-myServer.listen(PORT, () => {
-  console.log(`Server Started PORT on ${PORT}`);
+myserver.listen(PORT, () => {
+  console.log(`Listning on PORT ${PORT}`);
 });
-
-myServer.emit("start");
