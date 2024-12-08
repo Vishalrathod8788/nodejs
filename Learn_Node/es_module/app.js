@@ -2,17 +2,14 @@
 // const math = require("./math");
 
 // import module using es6
-import mult from "./math.js";
-import sub from "./math.js";
+import { add, sub, mult, div, PI } from "./math.js";
 
-// console.log(`Addition:`, math.add(5, 10));
+console.log(`Addition:`, add(10, 10));
 
-// console.log(`Subtraction:`, math.sub(5, 10));
+console.log(`Subtraction:`, sub(10, 1));
 
-console.log(`Multuplication:`, mult(5, 10));
+console.log(`Multuplication:`, mult(11, 10));
 
-// console.log(`Division:`, math.div(5, 10));
+console.log(`Division:`, div(5, 10));
 
-// console.log(`PI:`, math.PI);
-
-// this is common JS
+console.log(`PI:`, PI);
