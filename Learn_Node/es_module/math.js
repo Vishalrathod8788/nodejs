@@ -1,17 +1,19 @@
-export const add = (a, b) => {
+const add = (a, b) => {
   return a + b;
 };
 
-export const sub = (a, b) => {
+const sub = (a, b) => {
   return a - b;
 };
 
-export const mult = (a, b) => {
+const mult = (a, b) => {
   return a * b;
 };
 
-export const div = (a, b) => {
+const div = (a, b) => {
   return a / b;
 };
 
-export const PI = 3.14;
+const PI = 3.14;
+
+export { add, sub, mult, div, PI };
