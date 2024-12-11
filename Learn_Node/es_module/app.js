@@ -5,6 +5,7 @@
 // import { add, sub, mult, div, PI } from "./math.js";
 
 // import aliased name to use
+import chalk from "chalk";
 import * as math from "./math.js";
 
 console.log(`Addition:`, math.add(10, 10));
@@ -16,3 +17,6 @@ console.log(`Multuplication:`, math.mult(11, 10));
 console.log(`Division:`, math.div(5, 10));
 
 console.log(`PI:`, math.PI);
+
+const name = 'Alice';
+console.log(`Hello ${chalk.green(name)}!`);
