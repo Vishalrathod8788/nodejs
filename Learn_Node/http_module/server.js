@@ -20,3 +20,10 @@ const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Listning on PORT ${PORT}`);
 });
+
+// new server create
+const myserever = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.end("Welcome to our home page");
+  }
+})
