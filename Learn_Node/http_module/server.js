@@ -30,3 +30,7 @@ const myserever = http.createServer((req, res) => {
     res.end("Welcome to our about page");
   }
 })
+
+myserever.listen(5000, () => {
+  console.log("Listning on PORT 5000");
+})
