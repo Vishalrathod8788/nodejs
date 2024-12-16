@@ -1,17 +1,13 @@
 import fs from "fs";
+console.log("start");
 
 // Set a delayed message using setTimeout
 setTimeout(() => {
   console.log("Hey! How are you!");
-}, 5000);
+}, 2000);
 
 // Read file asynchronously and handle potential errors
-fs.readFile("error.txt", "utf-8", (err, data) => {
-  if (err) {
-    console.error("Error reading the file:", err.message);
-  } else {
-    console.log(data);
-  }
-});
+const data = fs.readFileSync("error.txt", "utf-8");
+console.log(data);
 
-console.log("hey!");
+console.log("End");
