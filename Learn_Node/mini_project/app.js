@@ -14,4 +14,15 @@ const ShowMenu = () => {
   rl.question("Choose an option", handleInput);
 };
 
+const handleInput = (option) => {
+  if (option === "1") {
+    rl.question("Enter a task", (task) => {
+      tasks.push(task);
+      console.log("Your Task Added");
+      ShowMenu();
+    });
+  } else if (option === "2") {
+  }
+};
+
 ShowMenu();
