@@ -28,8 +28,8 @@ const handleInput = (option) => {
     }
     tasks.forEach((task, index) => {
       console.log(`${index + 1}. ${task}`);
-      ShowMenu();
     });
+    ShowMenu();
   } else if (option === "3") {
     console.log("Good Bye!");
   } else {
