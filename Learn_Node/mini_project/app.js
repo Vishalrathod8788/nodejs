@@ -11,7 +11,7 @@ const ShowMenu = () => {
   console.log("\n1: Add a Task :");
   console.log("2: Show All Tasks :");
   console.log("3: Exit");
-  rl.question("Choose an option", handleInput);
+  rl.question("Choose an option", handleInput());
 };
 
 const handleInput = (option) => {
@@ -22,6 +22,18 @@ const handleInput = (option) => {
       ShowMenu();
     });
   } else if (option === "2") {
+    tasks.forEach((task, index) => {
+      if (tasks === null) {
+        console.log("No task Found!");
+        ShowMenu();
+      }
+      console.log(`${index + 1}. ${task}`);
+      ShowMenu();
+    });
+  } else if (option === "3") {
+    console.log("Good Bye!");
+  } else {
+    console.log("Invalid option Choose, try again!");
   }
 };
 
