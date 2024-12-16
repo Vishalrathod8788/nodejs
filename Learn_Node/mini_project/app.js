@@ -8,25 +8,25 @@ const rl = readline.createInterface({
 const tasks = [];
 
 const ShowMenu = () => {
-  console.log("\n1: Add a Task :");
-  console.log("2: Show All Tasks :");
+  console.log("\n1: Add a Task : ");
+  console.log("2: Show All Tasks : ");
   console.log("3: Exit");
-  rl.question("Choose an option", handleInput());
+  rl.question("Choose an option : ", handleInput);
 };
 
 const handleInput = (option) => {
   if (option === "1") {
-    rl.question("Enter a task", (task) => {
+    rl.question("Enter a task : ", (task) => {
       tasks.push(task);
       console.log("Your Task Added");
       ShowMenu();
     });
   } else if (option === "2") {
+    if (tasks == "") {
+      console.log("No task Found!");
+      ShowMenu();
+    }
     tasks.forEach((task, index) => {
-      if (tasks === null) {
-        console.log("No task Found!");
-        ShowMenu();
-      }
       console.log(`${index + 1}. ${task}`);
       ShowMenu();
     });
