@@ -13,6 +13,7 @@ rl.question("Enter File Name : ", (Fname) => {
         console.log("Error Occured");
       } else {
         console.log(`${Fname}.txt File Created Successfully`);
+        rl.close(console.log("Good Bye!"));
       }
     });
   });
