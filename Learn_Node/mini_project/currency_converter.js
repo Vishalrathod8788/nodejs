@@ -23,24 +23,34 @@ https.get(url, (res) => {
 
   res.on("end", () => {
     const rates = JSON.parse(data).conversion_rates;
-    rl.question("Enter amount in USD :", (amount) => {
-      rl.question("Enter Currency :", (currency) => {
-        const rate = rates[currency.toUpperCase()];
+    console.log(chalk.greenBright("Welcome to Currency Converter"));
+    console.log(rates);
 
-        if (rate) {
-          console.log(
-            chalk.blueBright(
-              `${amount} USD is approximately ${currencyConvert(
-                amount,
-                rate
-              )} ${currency}`
-            )
-          );
-        } else {
-          console.log(chalk.bgRed.bold(`Invalide Currency code!`));
-        }
-      });
-    });
+    rl.question(
+      chalk.bgYellowBright.bold("Enter amount in USD: "),
+      (amount) => {
+        rl.question(
+          chalk.bgYellowBright.bold("Enter Currency: "),
+          (currency) => {
+            const rate = rates[currency.toUpperCase()];
+
+            if (rate) {
+              console.log(
+                chalk.blueBright(
+                  `${amount} USD is approximately ${currencyConvert(
+                    amount,
+                    rate
+                  )} ${currency.toUpperCase()}`
+                )
+              );
+            } else {
+              console.log(chalk.bgRed.bold(`Invalide Currency code!`));
+            }
+            rl.close();
+          }
+        );
+      }
+    );
   });
 
   res.on("error", (err) => {
