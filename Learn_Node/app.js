@@ -11,5 +11,3 @@
 // console.log(`PI:`, math.PI);
 
 // this is common JS
-
-const { add, sub, mult, div, PI } = require("./math");
