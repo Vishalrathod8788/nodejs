@@ -33,10 +33,13 @@
     </div>
 
     <script>
-      const formdata = document
+      document
         .getElementById("shorten-form")
         .addEventListener("submit", (event) => {
-          console.log(FormData.get());
+          event.preventDefault();
+          const formdata = new FormData(event.target);
+          console.log(formdata.get(`url`));
+          console.log(formdata.get("shortCode"));
         });
     </script>
   </body>
