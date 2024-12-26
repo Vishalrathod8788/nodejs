@@ -2,35 +2,27 @@ import { createServer } from "http";
 import fs from "fs/promises";
 import path from "path";
 
-const PORT = 3000;
+const PORT = 3002;
+
+const servFile = (res, filePath, ContentType) => {
+  try {
+    const data = fs.readFile(filePath);
+    res.writeHead(200, { "Content-Type": ContentType });
+    res.end(data);
+  } catch (error) {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("404 Page Not Found");
+  }
+};
 
 const server = createServer(async (req, res) => {
   if (req.method === "GET") {
     if (req.url === "/") {
-      try {
-        const data = await fs.readFile(path.join("public", "index.html"));
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end(data);
-      } catch (error) {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("404 Page Not Found");
-      }
+      return servFile(res, path.join("public", "index.html"), "text/html");
     } else if (req.url === "/style.css") {
-      try {
-        const data = await fs.readFile(path.join("public", "style.css"));
-        res.writeHead(200, { "Content-Type": "text/css" });
-        res.end(data);
-      } catch (error) {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("404 Page Not Found");
-      }
-    } else {
-      // Add a default case for unknown routes
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("404 Page Not Found");
+      return servFile(res, path.join("public", "style.css"), "text/css");
     }
   } else {
-    // Add a default case for non-GET methods
     res.writeHead(405, { "Content-Type": "text/plain" });
     res.end("Method Not Allowed");
   }
