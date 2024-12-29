@@ -2,7 +2,7 @@ import { createServer } from "http";
 import fs from "fs/promises";
 import path from "path";
 
-const PORT = 3002;
+const PORT = 3000;
 
 const servFile = (res, filePath, ContentType) => {
   try {
