@@ -92,7 +92,7 @@ const server = createServer(async (req, res) => {
         res.end(JSON.stringify({ error: "Internal server error" }));
       }
     });
-  } else if (req.url === "/links" && req.method === "GET") {
+  } else if (req.url === "/DATA_FILE" && req.method === "GET") {
     const links = await loadLinks();
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(links));
