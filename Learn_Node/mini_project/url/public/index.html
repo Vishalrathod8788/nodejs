@@ -34,29 +34,9 @@
 
     <script>
       const fetchShortenedUrls = async () => {
-        const BASE_URL = "data/links";
-        try {
-          const BASE_URL = "data/links";
-          const response = await fetch(`${BASE_URL}`);
-
-          if (response.status === 404) {
-            console.log(
-              "No links endpoint found - please check your API route"
-            );
-            return [];
-          }
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const links = await response.json();
-          console.log("Links:", links);
-          return links;
-        } catch (error) {
-          console.error("Failed to fetch or parse data:", error);
-          return [];
-        }
+        const response = await fetch("/links");
+        const links = await response.json();
+        console.log("links", links);
       };
 
       document
