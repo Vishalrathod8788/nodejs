@@ -33,6 +33,14 @@
     </div>
 
     <script>
+      const fetchShortenedUrls = async () => {
+        const responce = await fetch("/links");
+        const links = await responce.json();
+        console.log(links);
+
+        const shortenedUrls = document.getElementById("shortened-urls");
+      };
+
       document
         .getElementById("shorten-form")
         .addEventListener("submit", async (event) => {
@@ -53,6 +61,7 @@
             });
 
             if (responce.ok) {
+              fetchShortenedUrls();
               alert("Form submitted successfully");
             } else {
               const errorMessage = await responce.text();
@@ -60,6 +69,8 @@
             }
           } catch (error) {}
         });
+
+      fetchShortenedUrls();
     </script>
   </body>
 </html>
