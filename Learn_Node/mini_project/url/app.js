@@ -2,7 +2,6 @@ import { createServer } from "http";
 import fs from "fs/promises";
 import path from "path";
 import crypto from "crypto";
-import {} from "fs";
 
 let PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join("data", "links.json");
@@ -20,11 +19,11 @@ const servFile = async (res, filePath, contentType) => {
 
 const loadLinks = async () => {
   try {
-    const data = await fs.readFile("DATA_FILE", "utf-8");
+    const data = await fs.readFile(DATA_FILE, "utf-8");
     return JSON.parse(data);
   } catch (error) {
     if (error.code === "ENOENT") {
-      await fs.writeFile("DATA_FILE", JSON.stringify({}));
+      await fs.writeFile(DATA_FILE, JSON.stringify({}));
       return {};
     }
     throw error;
@@ -32,7 +31,7 @@ const loadLinks = async () => {
 };
 
 const saveLinks = async (links) => {
-  await fs.writeFile(DATA_FILE, JSON.stringify(links));
+  await fs.writeFile(DATA_FILE, JSON.stringify(links, null, 2));
 };
 
 const server = createServer(async (req, res) => {
@@ -42,38 +41,56 @@ const server = createServer(async (req, res) => {
     } else if (req.url === "/style.css") {
       await servFile(res, path.join("public", "style.css"), "text/css");
     } else {
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("404 Page Not Found");
+      const links = await loadLinks();
+      const shortCode = req.url.slice(1);
+      if (links[shortCode]) {
+        res.writeHead(302, { Location: links[shortCode] });
+        res.end();
+      } else {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("404 Page Not Found");
+      }
     }
   } else if (req.method === "POST" && req.url === "/shorten") {
-    const links = await loadLinks();
-
     let body = "";
     req.on("data", (chunk) => {
       body += chunk.toString();
     });
 
     req.on("end", async () => {
-      console.log(body);
-      const { url, shortCode } = JSON.parse(body);
-      if (url) {
-        res.writeHead(200, { "Content-Type": "text/plain" });
-        res.end(`Shortened URL: /${url.split("/").pop()}`);
-      } else {
-        res.writeHead(400, { "Content-Type": "text/plain" });
-        res.end("URL is required");
+      try {
+        const links = await loadLinks();
+        const { url, shortCode } = JSON.parse(body);
+
+        if (!url) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "URL is required" }));
+          return;
+        }
+
+        const finalShortCode =
+          shortCode || crypto.randomBytes(3).toString("hex");
+
+        if (links[finalShortCode]) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(
+            JSON.stringify({
+              error: "Shortcode already exists, please choose another one",
+            })
+          );
+          return;
+        }
+
+        links[finalShortCode] = url;
+        await saveLinks(links);
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ shortUrl: `/${finalShortCode}` }));
+      } catch (error) {
+        console.error("Error processing request:", error);
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Internal server error" }));
       }
-
-      const finalShortcode = shortCode || crypto.randomBytes(3).toString("hex");
-
-      if (links[finalShortcode]) {
-        res.writeHead(400, { "Content-Type": "text/plain" });
-        res.end("Shortcode already exists, please choose another one");
-      }
-
-      links[finalShort] = url;
-
-      await saveLinks(links);
     });
   } else {
     res.writeHead(405, { "Content-Type": "text/plain" });
@@ -90,15 +107,8 @@ const startServer = () => {
     if (e.code === "EADDRINUSE") {
       console.log(`Port ${PORT} is in use, trying the next one...`);
       PORT++;
-      if (PORT <= MAX_PORT) {
-        server.close();
-        startServer();
-      } else {
-        console.error(
-          "Unable to find an open port. Please close some applications and try again."
-        );
-        process.exit(1);
-      }
+      server.close();
+      startServer();
     } else {
       console.error("An error occurred:", e.message);
       process.exit(1);

@@ -35,11 +35,30 @@
     <script>
       document
         .getElementById("shorten-form")
-        .addEventListener("submit", (event) => {
+        .addEventListener("submit", async (event) => {
           event.preventDefault();
           const formdata = new FormData(event.target);
-          console.log(formdata.get(`url`));
-          console.log(formdata.get("shortCode"));
+          const url = formdata.get("url");
+          const shortCode = formdata.get("shortCode");
+
+          console.log(url, shortCode);
+
+          try {
+            const responce = await fetch("/shorten", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ url, shortCode }),
+            });
+
+            if (responce.ok) {
+              alert("Form submitted successfully");
+            } else {
+              const errorMessage = await responce.text();
+              alert(errorMessage);
+            }
+          } catch (error) {}
         });
     </script>
   </body>
