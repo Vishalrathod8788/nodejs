@@ -26,6 +26,26 @@ const server = createServer(async (req, res) => {
       res.writeHead(404, { "Content-Type": "text/plain" });
       res.end("404 Page Not Found");
     }
+  } else if (req.method === "POST" && req.url === "/shorten") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+
+    req.on("end", () => {
+      console.log(body);
+      const { url, shortCode } = JSON.parse(body);
+      if (url) {
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.end(`Shortened URL: /${url.split("/").pop()}`);
+      } else {
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        res.end("URL is required");
+      }
+
+      const finalShortcode = shortCode || crypto.randomBytes(3).toString("hex");
+      
+    });
   } else {
     res.writeHead(405, { "Content-Type": "text/plain" });
     res.end("Method Not Allowed");
