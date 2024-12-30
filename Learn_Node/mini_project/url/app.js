@@ -1,9 +1,11 @@
 import { createServer } from "http";
 import fs from "fs/promises";
 import path from "path";
+import crypto from "crypto";
+import {} from "fs";
 
 let PORT = process.env.PORT || 3000;
-const MAX_PORT = PORT + 100; // We'll try up to 100 ports
+const DATA_FILE = path.join("data", "links.json");
 
 const servFile = async (res, filePath, contentType) => {
   try {
@@ -14,6 +16,23 @@ const servFile = async (res, filePath, contentType) => {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("404 Page Not Found");
   }
+};
+
+const loadLinks = async () => {
+  try {
+    const data = await fs.readFile("DATA_FILE", "utf-8");
+    return JSON.parse(data);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      await fs.writeFile("DATA_FILE", JSON.stringify({}));
+      return {};
+    }
+    throw error;
+  }
+};
+
+const saveLinks = async (links) => {
+  await fs.writeFile(DATA_FILE, JSON.stringify(links));
 };
 
 const server = createServer(async (req, res) => {
@@ -27,12 +46,14 @@ const server = createServer(async (req, res) => {
       res.end("404 Page Not Found");
     }
   } else if (req.method === "POST" && req.url === "/shorten") {
+    const links = await loadLinks();
+
     let body = "";
     req.on("data", (chunk) => {
       body += chunk.toString();
     });
 
-    req.on("end", () => {
+    req.on("end", async () => {
       console.log(body);
       const { url, shortCode } = JSON.parse(body);
       if (url) {
@@ -44,7 +65,15 @@ const server = createServer(async (req, res) => {
       }
 
       const finalShortcode = shortCode || crypto.randomBytes(3).toString("hex");
-      
+
+      if (links[finalShortcode]) {
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        res.end("Shortcode already exists, please choose another one");
+      }
+
+      links[finalShort] = url;
+
+      await saveLinks(links);
     });
   } else {
     res.writeHead(405, { "Content-Type": "text/plain" });
