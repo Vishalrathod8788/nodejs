@@ -92,10 +92,10 @@ const server = createServer(async (req, res) => {
         res.end(JSON.stringify({ error: "Internal server error" }));
       }
     });
-  } else if (req.url === "/DATA_FILE" && req.method === "GET") {
+  } else if (req.url === "/links" && req.method === "GET") {
     const links = await loadLinks();
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(links));
+    res.writeHead(400, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify(links));
   } else {
     res.writeHead(405, { "Content-Type": "text/plain" });
     res.end("Method Not Allowed");

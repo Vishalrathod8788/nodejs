@@ -34,9 +34,15 @@
 
     <script>
       const fetchShortenedUrls = async () => {
-        const response = await fetch("/links");
-        const links = await response.json();
-        console.log("links", links);
+        try {
+          const response = await fetch("/links");
+          const links = await response.json();
+          console.log("Links:", links);
+          return links;
+        } catch (error) {
+          console.error("Failed to fetch or parse data:", error);
+          return [];
+        }
       };
 
       document
