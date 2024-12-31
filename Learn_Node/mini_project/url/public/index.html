@@ -34,14 +34,17 @@
 
     <script>
       const fetchShortenedUrls = async () => {
+        console.log("Fetching shortened urls");
         try {
-          const response = await fetch("/links");
-          const links = await response.json();
-          console.log("Links:", links);
-          return links;
+          const response = await fetch("http://localhost:5000/data/links");
+          if (!response.ok) {
+            // Check if the response is an error
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const links = await response.json(); // Parse JSON only if response is okay
+          console.log("Links", links);
         } catch (error) {
-          console.error("Failed to fetch or parse data:", error);
-          return [];
+          console.error("Error fetching shortened URLs:", error);
         }
       };
 
