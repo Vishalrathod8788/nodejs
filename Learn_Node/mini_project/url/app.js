@@ -1,15 +1,27 @@
+// app.js
 import { createServer } from "http";
 import fs from "fs/promises";
 import path from "path";
 import crypto from "crypto";
 
-let PORT = process.env.PORT || 3000;
+const PORT = 5000;
 const DATA_FILE = path.join("data", "links.json");
 
+// Add CORS headers to allow frontend requests
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+// Serve static files (HTML, CSS)
 const servFile = async (res, filePath, contentType) => {
   try {
     const data = await fs.readFile(filePath);
-    res.writeHead(200, { "Content-Type": contentType });
+    res.writeHead(200, {
+      "Content-Type": contentType,
+      ...CORS_HEADERS,
+    });
     res.end(data);
   } catch (error) {
     res.writeHead(404, { "Content-Type": "text/plain" });
@@ -17,30 +29,74 @@ const servFile = async (res, filePath, contentType) => {
   }
 };
 
+// Load links from JSON file
 const loadLinks = async () => {
   try {
-    const data = await fs.readFile(DATA_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch (error) {
-    if (error.code === "ENOENT") {
-      await fs.writeFile(DATA_FILE, JSON.stringify({}));
-      return {};
+    // Create data directory if it doesn't exist
+    await fs.mkdir("data", { recursive: true });
+
+    try {
+      const data = await fs.readFile(DATA_FILE, "utf-8");
+      // Check if data is empty
+      if (!data.trim()) {
+        // If file is empty, initialize with empty object
+        await fs.writeFile(DATA_FILE, JSON.stringify({}));
+        return {};
+      }
+      return JSON.parse(data);
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        // If file doesn't exist, create it with empty object
+        await fs.writeFile(DATA_FILE, JSON.stringify({}));
+        return {};
+      }
+      // If JSON parse error, reinitialize the file
+      if (error instanceof SyntaxError) {
+        await fs.writeFile(DATA_FILE, JSON.stringify({}));
+        return {};
+      }
+      throw error;
     }
-    throw error;
+  } catch (error) {
+    console.error("Error loading links:", error);
+    return {};
   }
 };
 
+// Save links to JSON file
 const saveLinks = async (links) => {
-  await fs.writeFile(DATA_FILE, JSON.stringify(links, null, 2));
+  try {
+    await fs.writeFile(DATA_FILE, JSON.stringify(links, null, 2));
+  } catch (error) {
+    console.error("Error saving links:", error);
+  }
 };
 
 const server = createServer(async (req, res) => {
+  // Handle CORS preflight requests
+  if (req.method === "OPTIONS") {
+    res.writeHead(204, CORS_HEADERS);
+    res.end();
+    return;
+  }
+
+  // Add CORS headers to all responses
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   if (req.method === "GET") {
     if (req.url === "/") {
       await servFile(res, path.join("public", "index.html"), "text/html");
     } else if (req.url === "/style.css") {
       await servFile(res, path.join("public", "style.css"), "text/css");
+    } else if (req.url === "/links") {
+      // Return all links
+      const links = await loadLinks();
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(links));
     } else {
+      // Handle redirect for shortened URLs
       const links = await loadLinks();
       const shortCode = req.url.slice(1);
       if (links[shortCode]) {
@@ -52,6 +108,7 @@ const server = createServer(async (req, res) => {
       }
     }
   } else if (req.method === "POST" && req.url === "/shorten") {
+    // Handle URL shortening
     let body = "";
     req.on("data", (chunk) => {
       body += chunk.toString();
@@ -68,9 +125,11 @@ const server = createServer(async (req, res) => {
           return;
         }
 
+        // Generate or use provided shortCode
         const finalShortCode =
           shortCode || crypto.randomBytes(3).toString("hex");
 
+        // Check if shortCode already exists
         if (links[finalShortCode]) {
           res.writeHead(400, { "Content-Type": "application/json" });
           res.end(
@@ -81,6 +140,7 @@ const server = createServer(async (req, res) => {
           return;
         }
 
+        // Save new link
         links[finalShortCode] = url;
         await saveLinks(links);
 
@@ -92,16 +152,13 @@ const server = createServer(async (req, res) => {
         res.end(JSON.stringify({ error: "Internal server error" }));
       }
     });
-  } else if (req.url === "/links" && req.method === "GET") {
-    const links = await loadLinks();
-    res.writeHead(400, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify(links));
   } else {
     res.writeHead(405, { "Content-Type": "text/plain" });
     res.end("Method Not Allowed");
   }
 });
 
+// Start server with port retry logic
 const startServer = () => {
   server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

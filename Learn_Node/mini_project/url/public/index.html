@@ -24,7 +24,6 @@
           name="shortCode"
           id="shortCode"
           placeholder="Enter your short code here"
-          required
         />
         <button type="submit">Shorten</button>
         <h2>Shortened URLs</h2>
@@ -33,18 +32,35 @@
     </div>
 
     <script>
+      const shortenedUrlsList = document.getElementById("shortened-urls");
+
+      const displayLinks = (links) => {
+        shortenedUrlsList.innerHTML = "";
+        Object.entries(links).forEach(([shortCode, originalUrl]) => {
+          const li = document.createElement("li");
+          const shortUrl = `${window.location.origin}/${shortCode}`;
+          li.innerHTML = `
+            <div>
+              <strong>Short URL:</strong> <a href="${shortUrl}" target="_blank">${shortUrl}</a><br>
+              <strong>Original URL:</strong> <a href="${originalUrl}" target="_blank">${originalUrl}</a>
+            </div>
+          `;
+          shortenedUrlsList.appendChild(li);
+        });
+      };
+
       const fetchShortenedUrls = async () => {
-        console.log("Fetching shortened urls");
         try {
-          const response = await fetch("http://localhost:5000/data/links");
+          const response = await fetch("http://localhost:5000/links");
           if (!response.ok) {
-            // Check if the response is an error
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-          const links = await response.json(); // Parse JSON only if response is okay
-          console.log("Links", links);
+          const links = await response.json();
+          displayLinks(links);
         } catch (error) {
-          console.error("Error fetching shortened URLs:", error);
+          console.error("Error fetching shortened URLs:", error.message);
+          shortenedUrlsList.innerHTML =
+            '<li class="error">Error loading shortened URLs</li>';
         }
       };
 
@@ -52,11 +68,9 @@
         .getElementById("shorten-form")
         .addEventListener("submit", async (event) => {
           event.preventDefault();
-          const formdata = new FormData(event.target);
-          const url = formdata.get("url");
-          const shortCode = formdata.get("shortCode");
-
-          console.log(url, shortCode);
+          const formData = new FormData(event.target);
+          const url = formData.get("url");
+          const shortCode = formData.get("shortCode");
 
           try {
             const response = await fetch("/shorten", {
@@ -67,16 +81,21 @@
               body: JSON.stringify({ url, shortCode }),
             });
 
-            if (response.ok) {
-              fetchShortenedUrls();
-              alert("Form submitted successfully");
-            } else {
-              const errorMessage = await response.text();
-              alert(errorMessage);
+            if (!response.ok) {
+              const data = await response.json();
+              throw new Error(data.error || "Failed to shorten URL");
             }
-          } catch (error) {}
+
+            const result = await response.json();
+            event.target.reset();
+            fetchShortenedUrls();
+            alert("URL shortened successfully!");
+          } catch (error) {
+            alert(error.message);
+          }
         });
 
+      // Initial fetch of shortened URLs
       fetchShortenedUrls();
     </script>
   </body>
