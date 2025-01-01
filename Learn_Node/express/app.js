@@ -37,7 +37,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/services", (req, res) => {
-  return res.send(`<h1>This is the services page</h1><p>Hey</p><p>Hey</p>`);
+  return res.send(`<h1>This is the services page</p>`);
 });
 
 const PORT = process.env.PORT;
