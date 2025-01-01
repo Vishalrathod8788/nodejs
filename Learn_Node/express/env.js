@@ -14,13 +14,15 @@ const userAge = 17;
 // const parseUserAge = ageSchema.parse(userAge);
 // console.log(parseUserAge);
 
-try {
-  const parseUserAge = ageSchema.parse(userAge);
-  console.log(parseUserAge);
-} catch (error) {
-  if (error instanceof ZodError) {
-    console.log(error.issues[0].message);
-  } else {
-    console.log(error);
-  }
-}
+// try {
+//   const parseUserAge = ageSchema.parse(userAge);
+//   console.log(parseUserAge);
+// } catch (error) {
+//   if (error instanceof ZodError) {
+//     console.log(error.issues[0].message);
+//   } else {
+//     console.log(error);
+//   }
+// }
+
+const PORT = z.number().int().positive().parseInt(process.env.PORT);
