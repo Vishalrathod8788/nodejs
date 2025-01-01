@@ -1,4 +1,4 @@
-export const PORT = isNaN(process.env.PORT) ? 3000 : parseInt(process.env.PORT);
+// export const PORT = isNaN(process.env.PORT) ? 3000 : parseInt(process.env.PORT);
 
 // what is zod libarary ?
 // zod is a TypeScript-first schema declaration and validation library.
@@ -25,4 +25,12 @@ const userAge = 17;
 //   }
 // }
 
-const PORT = z.number().int().positive().parseInt(process.env.PORT);
+const portSchema = z.coerce
+  .number()
+  .min(1)
+  .max(65535)
+  .int()
+  .positive()
+  .default(3000);
+
+export const PORT = portSchema.parse(process.env.PORT);
