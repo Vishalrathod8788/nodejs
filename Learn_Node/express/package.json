@@ -2,11 +2,11 @@
   "name": "express",
   "version": "1.0.0",
   "description": "express framework",
-  "type": "module",
+  "type": "module", 
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch app.js"
+    "dev": "node --env-file=.env --watch app.js"
   },
   "author": "vishal rathod",
   "license": "ISC",

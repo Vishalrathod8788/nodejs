@@ -40,7 +40,7 @@ app.get("/services", (req, res) => {
   return res.send(`<h1>This is the services page</p>`);
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
