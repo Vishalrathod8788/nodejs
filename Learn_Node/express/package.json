@@ -2,7 +2,7 @@
   "name": "express",
   "version": "1.0.0",
   "description": "express framework",
-  "type": "module", 
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,6 +11,7 @@
   "author": "vishal rathod",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.0.1"
+    "express": "^5.0.1",
+    "zod": "^3.24.1"
   }
 }
