@@ -3,7 +3,248 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Personal Portfolio</title>
+    <style>
+      /* Header CSS */
+      header {
+        background-color: #333;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+
+        /* Sticky Header */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
+        /* Box Shadow */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav li {
+        margin: 0 1rem;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      h1 {
+        margin-top: 2rem;
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        margin-top: 1rem;
+        font-size: 2rem;
+      }
+
+      p {
+        margin-top: 0.5rem;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      a {
+        display: block;
+        width: 150px;
+        margin: 1rem auto;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #0056b3;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+      }
+
+      li {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+        background-color: #fff;
+        margin: 1rem 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 2rem;
+        padding: 1rem;
+        background-color: #333;
+        color: #fff;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      @media (min-width: 768px) {
+        h1 {
+          margin-top: 4rem;
+        }
+
+        h2 {
+          margin-top: 2rem;
+        }
+
+        p {
+          margin-top: 1rem;
+        }
+
+        a {
+          margin: 2rem auto;
+        }
+
+        ul {
+          display: flex;
+          justify-content: center;
+        }
+
+        li {
+          margin: 0 1rem;
+        }
+      }
+
+      @media (min-width: 992px) {
+        h1 {
+          margin-top: 6rem;
+        }
+
+        h2 {
+          margin-top: 3rem;
+        }
+
+        p {
+          margin-top: 1.5rem;
+        }
+
+        a {
+          margin: 3rem auto;
+        }
+
+        ul {
+          display: flex;
+          justify-content: center;
+        }
+
+        li {
+          margin: 0 1.5rem;
+        }
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- Header code write please -->
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#hero">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#services">Services</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- create personal portfolio website hero section -->
+    <section>
+      <h1>Personal Portfolio Website</h1>
+      <h2>Hi, I'm Vishal Rathod</h2>
+      <p>
+        I'm a full-stack web developer. I have experience in HTML, CSS,
+        JavaScript, React, Node.js, Express, and MongoDB.
+      </p>
+      <a href="#">Contact Me</a>
+    </section>
+
+    <!-- create personal portfolio website about section -->
+    <section>
+      <h2 id="#about">About Me</h2>
+      <p>
+        I'm a full-stack web developer. I have experience in HTML, CSS,
+        JavaScript, React, Node.js, Express, and MongoDB.
+      </p>
+    </section>
+
+    <!-- create personal portfolio website services section -->
+    <section>
+      <h2>Services</h2>
+      <ul>
+        <li>Web Design</li>
+        <li>Web Development</li>
+        <li>Full-Stack Development</li>
+      </ul>
+    </section>
+
+    <!-- create personal portfolio website projects section -->
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li>Project 1</li>
+        <li>Project 2</li>
+        <li>Project 3</li>
+      </ul>
+    </section>
+
+    <!-- create personal portfolio website contact section -->
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Email:
+        <a href="mailto:vishalrathhod1562004@gmail.com">vishalrathod</a>
+      </p>
+    </section>
+
+    <!-- create personal portfolio website footer section -->
+    <footer>
+      <p>&copy; 2025 Vishal Rathod</p>
+    </footer>
+  </body>
 </html>
