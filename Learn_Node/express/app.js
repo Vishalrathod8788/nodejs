@@ -10,6 +10,11 @@ app.use(express.static(staticPath));
 // sir ka tarika
 // app.use(express.static("public"));
 
+// request and responce write using API
+const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+const data = await response.json();
+console.log(data);
+
 app.get("/", (req, res) => {
   res.send("<h1>This is the home page</h1>");
 });
