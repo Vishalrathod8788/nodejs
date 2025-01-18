@@ -15,6 +15,11 @@ const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
 const data = await response.json();
 console.log(data);
 
+app.get("/profile/:username", (req, res) => {
+  console.log(req.params);
+  res.send(`<h1>My Name is ${req.params.username}</h1>`);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
