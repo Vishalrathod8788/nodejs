@@ -10,14 +10,21 @@ app.use(express.static(staticPath));
 // sir ka tarika
 // app.use(express.static("public"));
 
-// request and responce write using API
-const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-const data = await response.json();
-console.log(data);
-
 app.get("/profile/:username", (req, res) => {
-  console.log(req.params);
+  // console.log(req.params);
   res.send(`<h1>My Name is ${req.params.username}</h1>`);
+});
+
+app.get("/profile/:username/article/:slug", (req, res) => {
+  const formatedSlug = req.params.slug.replace(/-/g, " ");
+  res.send(
+    `<h1>Article is ${formatedSlug} Created by ${req.params.username}</h1>`
+  );
+});
+
+app.get("/product", (req, res) => {
+  console.log(req.query);
+  res.send(`<h1>User Search Page No. in  ${req.query.search} </h1>`);
 });
 
 app.listen(PORT, () => {
