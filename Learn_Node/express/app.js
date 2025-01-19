@@ -30,3 +30,7 @@ app.get("/product", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(staticPath, "contact.html"));
+});
