@@ -1,13 +1,13 @@
-<form class="contact-form">
+<form class="contact-form" method="get" action="/contact">
   <h2>Contact Us</h2>
   <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required />
+  <input type="text" name="user[name]" required />
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required />
+  <input type="email" name="user[email]" required />
 
   <label for="message">Message:</label>
-  <textarea id="message" name="message" rows="4" required></textarea>
+  <textarea id="message" name="user[message]" rows="4" required></textarea>
 
   <button type="submit">Send Message</button>
 </form>
@@ -19,6 +19,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   .contact-form h2 {
     text-align: center;
