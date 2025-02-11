@@ -1,20 +1,29 @@
 import express from "express";
 import { PORT } from "./env.js";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
-// mera tarika
-const staticPath = path.join(import.meta.dirname, "public");
+const staticPath = path.join(__dirname, "public");
 app.use(express.static(staticPath));
+app.use(express.urlencoded({ extended: true }));
 
-// sir ka tarika
-// app.use(express.static("public"));
-
+// Serve the contact page
 app.get("/contact", (req, res) => {
-  console.log(req.query);
-  res.send(`<h1>User Name : ${req.query.name}</h1>`);
-  res.send(`<h1>User Email : ${req.query.email}</h1>`);
-  res.send(`<h1>User Message : ${req.query.message}</h1>`);
+  res.sendFile(path.join(__dirname, "public", "contact.html"));
+});
+
+app.post("/contact", (req, res) => {
+  console.log(req.body);
+  res.send(`
+    <h1>User Name : ${req.body.user.name}</h1>
+    <h1>User Email : ${req.body.user.email}</h1>
+    <h1>User Message : ${req.body.user.message}</h1>
+    `);
 });
 
 app.listen(PORT, () => {
