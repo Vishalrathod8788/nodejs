@@ -23,3 +23,18 @@ const filterUser = people
   .map((currUser) => currUser.name);
 
 console.log(filterUser);
+
+let str1 = "Vishal";
+let str2 = "coder";
+
+const MergeStr = (str1, str2) => {
+  let ans = "";
+  for (let i = 0; i < str2.length; i++) {
+    ans += str1[i] + str2[i];
+  }
+  ans += str1.slice(str2.length);
+
+  return ans;
+};
+
+console.log(MergeStr(str1, str2));
