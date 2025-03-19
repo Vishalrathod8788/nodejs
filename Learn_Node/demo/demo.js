@@ -12,20 +12,20 @@
 
 // console.log(filterNum);
 
-const people = [
-  { name: "Alice", age: 25 },
-  { name: "Bob", age: 17 },
-  { name: "Charlie", age: 30 },
-];
+// const people = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 17 },
+//   { name: "Charlie", age: 30 },
+// ];
 
-const filterUser = people
-  .filter((currUser) => currUser.age > 18)
-  .map((currUser) => currUser.name);
+// const filterUser = people
+//   .filter((currUser) => currUser.age > 18)
+//   .map((currUser) => currUser.name);
 
-console.log(filterUser);
+// console.log(filterUser);
 
 let str1 = "Vishal";
-let str2 = "coder";
+let str2 = "code";
 
 const MergeStr = (str1, str2) => {
   let ans = "";
