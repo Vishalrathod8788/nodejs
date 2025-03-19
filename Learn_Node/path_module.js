@@ -1,12 +1,18 @@
-const path = require("path");
-console.log(__dirname);
-console.log(__filename);
+import path from "path";
 
-const filePath = path.join("Folder", "Student", "Data.txt");
-console.log(filePath);
-console.log(path.parse(filePath));
-console.log(path.resolve("Folder", "Student", "Data.txt"));
-console.log(path.basename(filePath));
-console.log(path.dirname(filePath));
-console.log(path.extname(filePath));
+// simple Path module console
+console.log(path);
+// Output: Promise { <pending> }
 console.log(path.sep);
+// Output: undefined
+console.log(path.join);
+// Output: undefined
+console.log(path.resolve);
+// Output: undefined
+console.log(path.dirname);
+// Output: undefined
+console.log(path.basename);
+// Output: undefined
+console.log(path.extname);
+
+// console.log(__dirname);
