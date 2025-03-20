@@ -36,5 +36,3 @@ const MergeStr = (str1, str2) => {
 
   return ans;
 };
-
-console.log(MergeStr(str1, str2));
