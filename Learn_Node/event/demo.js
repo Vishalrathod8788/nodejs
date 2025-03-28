@@ -29,17 +29,19 @@ myEmitter.on("user-login", (username) => {
 myEmitter.on("user-logout", (username) => {
   console.log(`${username} wants to logout, please`);
   eventCounter["user-logout"]++;
-  fs.writeFi
+  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
 });
 
 myEmitter.on("user-purchased", (product) => {
   console.log(`${product} purchaed !`);
   eventCounter["user-purchased"]++;
+  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
 });
 
 myEmitter.on("profile-update", (email) => {
   console.log(`${email} updated !`);
   eventCounter["profile-update"]++;
+  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
 });
 
 myEmitter.on("summry", () => {
