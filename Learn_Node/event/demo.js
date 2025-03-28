@@ -17,31 +17,37 @@ let eventCounter = {
   "user-purchased": 0,
   "profile-update": 0,
 };
+try {
+  const data = fs.readFileSync(filePath);
+  eventCounter = JSON.parse(data);
+} catch (error) {
+  console.log("File not found", error);
+}
 
 myEmitter.on("user-login", (username) => {
   console.log(
     `${username} wants to login, please and ${eventCounter["user-login"]}`
   );
   eventCounter["user-login"]++;
-  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
+  fs.writeFileSync(filePath, JSON.stringify(eventCounter));
 });
 
 myEmitter.on("user-logout", (username) => {
   console.log(`${username} wants to logout, please`);
   eventCounter["user-logout"]++;
-  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
+  fs.writeFileSync(filePath, JSON.stringify(eventCounter));
 });
 
 myEmitter.on("user-purchased", (product) => {
   console.log(`${product} purchaed !`);
   eventCounter["user-purchased"]++;
-  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
+  fs.writeFileSync(filePath, JSON.stringify(eventCounter));
 });
 
 myEmitter.on("profile-update", (email) => {
   console.log(`${email} updated !`);
   eventCounter["profile-update"]++;
-  fs.writeFileSync(filePath, JSON.stringyfy(eventCounter));
+  fs.writeFileSync(filePath, JSON.stringify(eventCounter));
 });
 
 myEmitter.on("summry", () => {
