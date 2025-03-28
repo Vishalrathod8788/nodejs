@@ -19,4 +19,6 @@ const writeData = fs.writeFile(
   }
 );
 
-const readData = fs.readFile();
+const readData = fs.readFile(filePath, "utf8", (err, data) => {
+  console.log("Read Data from", fileName ,":", data);
+});
