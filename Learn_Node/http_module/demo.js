@@ -10,7 +10,6 @@ const server = http.createServer((req, res) => {
     res.end();
   }
 });
-
 const PORT = 3000;
 
 server.listen(PORT, () => {
