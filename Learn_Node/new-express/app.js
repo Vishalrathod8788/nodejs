@@ -15,9 +15,6 @@ app.get('/about', (req, res) => {
     return res.send("About Page");
 })
 
-
-
-
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
