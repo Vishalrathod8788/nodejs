@@ -5,7 +5,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// Create Middleware 
+// Create Middleware
 app.get('/', (req, res) => {
     return res.send("Hello World");
 })
