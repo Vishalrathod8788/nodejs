@@ -8,6 +8,11 @@ const PORT = process.env.PORT || 8000;
 const staticPath = path.join(import.meta.dirname, 'public');
 app.use(express.static(staticPath));
 
+// without using async/await
+const response = await fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json()).catch(err => console.error('Error fetching data:', err));
+console.log(response[99].userId);
+
+
 app.get('/', (req, res) =>{
     const homePagePath = path.join(import.meta.dirname, 'public', 'index.html');
     res.sendFile(homePagePath);
