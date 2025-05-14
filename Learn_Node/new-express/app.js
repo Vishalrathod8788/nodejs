@@ -6,7 +6,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 const staticPath = path.join(import.meta.dirname, 'public');
+
 app.use(express.static(staticPath));
+app.use(express.urlencoded({extended: true}));
 
 // without using async/await
 const response = await fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json()).catch(err => console.error('Error fetching data:', err));
@@ -29,6 +31,13 @@ app.get('/user/:username', (req, res) => {
 app.get('/product', (req, res) => {
     console.log(req.query);
     res.send(`The product name is ${req.query.product} and the price is ${req.query.price}`);
+})
+
+//contact route
+app.post('/contact', (req, res) => {
+    console.log(req.body);
+    // res.redirect(`https://www.google.com/search?q=${req.body.message}`);
+    res.send(`The message is ${req.body.user.message}`);
 })
 
 app.listen(PORT, () => {
