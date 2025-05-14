@@ -25,7 +25,11 @@ app.get('/user/:username', (req, res) => {
     res.send(`Hello, My name is ${username}`);
 })
 
-// Multiple route parameters
+// Query parameter
+app.get('/product', (req, res) => {
+    console.log(req.query);
+    res.send(`The product name is ${req.query.product} and the price is ${req.query.price}`);
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running ${`http://localhost:${PORT}`}`);
