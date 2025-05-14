@@ -18,6 +18,15 @@ app.get('/', (req, res) =>{
     res.sendFile(homePagePath);
 })
 
+//Route parameter
+app.get('/user/:username', (req, res) => {
+    const username = req.params.username;
+    // console.log(req.params);
+    res.send(`Hello, My name is ${username}`);
+})
+
+// Multiple route parameters
+
 app.listen(PORT, () => {
     console.log(`Server is running ${`http://localhost:${PORT}`}`);
 })
