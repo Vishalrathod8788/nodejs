@@ -9,6 +9,9 @@ const staticPath = path.join(import.meta.dirname, 'public');
 
 app.use(express.static(staticPath));
 app.use(express.urlencoded({extended: true}));
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(import.meta.dirname, 'views', '404.html'));
+})
 
 // without using async/await
 const response = await fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json()).catch(err => console.error('Error fetching data:', err));
