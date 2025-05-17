@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const app = express();
@@ -18,12 +19,12 @@ const response = await fetch('https://jsonplaceholder.typicode.com/posts').then(
 console.log(response[99].userId);
 
 
-app.get('/', (req, res) =>{
+app.get('/', (req, res) => {
     const homePagePath = path.join(import.meta.dirname, 'public', 'index.html');
     res.sendFile(homePagePath);
 })
 
-//Route parameter
+// Route parameter
 app.get('/user/:username', (req, res) => {
     const username = req.params.username;
     // console.log(req.params);
@@ -36,7 +37,7 @@ app.get('/product', (req, res) => {
     res.send(`The product name is ${req.query.product} and the price is ${req.query.price}`);
 })
 
-//contact route
+// contact route
 app.post('/contact', (req, res) => {
     console.log(req.body);
     // res.redirect(`https://www.google.com/search?q=${req.body.message}`);
