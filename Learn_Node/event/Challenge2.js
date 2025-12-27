@@ -16,6 +16,10 @@ let eventCount = {
   "user-purchase": 0,
   "profile-update": 0,
 };
+const updateEventCount = (eventName) => {
+  eventCount[eventName]++;
+  fs.writeFileSync(filePath, JSON.stringify(eventCount), "utf-8");
+};
 
 try {
   const data = fs.readFileSync(filePath);
@@ -26,25 +30,21 @@ try {
 
 emitter.on("user-login", (username) => {
   console.log(`${username} is login`);
-  eventCount["user-login"]++;
-  fs.writeFileSync(filePath, JSON.stringify(eventCount), "utf-8");
+  updateEventCount("user-login");
 });
 
 emitter.on("user-logout", (username) => {
   console.log(`${username} is logout`);
-  eventCount["user-logout"]++;
-  fs.writeFileSync(filePath, JSON.stringify(eventCount), "utf-8");
+  updateEventCount("user-logout");
 });
 
 emitter.on("user-purchase", (product) => {
   console.log(`${product} is purchased`);
-  eventCount["user-purchase"]++;
-  fs.writeFileSync(filePath, JSON.stringify(eventCount), "utf-8");
+  updateEventCount("user-purchase");
 });
 emitter.on("profile-update", (update) => {
   console.log(`Profile updated: ${update}`);
-  eventCount["profile-update"]++;
-  fs.writeFileSync(filePath, JSON.stringify(eventCount), "utf-8");
+  updateEventCount("profile-update");
 });
 
 emitter.on("summary", () => {
